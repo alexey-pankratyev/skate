@@ -16,29 +16,35 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
-group :test, :development do
-  gem 'rspec'
+group :development do
   gem 'rspec-rails'
-  gem 'minitest-rails'
-  gem 'shoulda-matchers'
-  gem 'cucumber'
-  gem 'cucumber-rails', :require => false
-  gem 'capybara'
-  gem 'factory_girl_rails'
-  gem 'database_cleaner'
-  gem 'spork'
-  gem 'spork-rails'
-  gem 'guard'
-  gem 'guard-spork'
-  gem 'guard-rspec'
-  gem 'guard-cucumber'
-  gem 'rails-footnotes'
-end
-                                      
-                                      gem 'jquery-rails'
-                                      gem 'slim-rails'
+  end
+  
+  group :test do
+    gem 'rspec-rails'
+    gem 'webrat'
+    gem 'spork'
+   end
+
+#group :test, :development do
+#gem 'minitest-rails'
+#gem 'shoulda-matchers'
+#  gem 'cucumber'
+#  gem 'cucumber-rails', :require => false
+#gem 'capybara'
+#gem 'factory_girl_rails'
+#gem 'database_cleaner'
+#gem 'spork'
+#gem 'spork-rails'
+#gem 'guard'
+#gem 'guard-spork'
+#gem 'guard-rspec'
+#gem 'guard-cucumber'
+#gem 'rails-footnotes'
+# end
+
+ gem 'jquery-rails'
+ gem 'slim-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
