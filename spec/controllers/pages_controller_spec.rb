@@ -13,7 +13,7 @@ it "should have the right title" do
      get 'home'
      response.should have_selector("title",
                        :content =>
-                         "Мянда|Home")
+                           "Home")
    end
   end
 
@@ -27,7 +27,7 @@ it "should have the right title" do
       get 'contact'
       response.should have_selector("title",
                        :content =>
-                                  "Мянда|Contact")
+                                  "Contact")
    end
   end
  describe "GET 'about'" do
@@ -40,7 +40,7 @@ it "should have the right title" do
       get 'about'
       response.should have_selector("title",
                         :content =>
-                          "Мянда|About")
+                          "About")
    end
   end
 end
