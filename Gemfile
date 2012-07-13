@@ -14,21 +14,21 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
-end
-group :development do
-  gem 'rspec-rails'
-  end
+ # gem 'uglifier', '>= 1.0.3'
+#end
+#group :development do
+ # gem 'rspec-rails'
+  #end
   
-  group :test do
-    gem 'rspec-rails'
-    gem 'webrat'
-    gem 'spork'
-    gem 'autotest-notification'
-    #gem 'autotest-rails-pure', '4.1.2'
-    #gem 'autotest-fsevent', '0.2.4'
-    #gem 'autotest-growl', '0.2.9'
-   end
+#  group :test do
+#    gem 'rspec-rails'
+#    gem 'webrat'
+#    gem 'spork'
+#    gem 'autotest-notification'
+#    #gem 'autotest-rails-pure', '4.1.2'
+#    #gem 'autotest-fsevent', '0.2.4'
+#    #gem 'autotest-growl', '0.2.9'
+ #  end
 
 #group :test, :development do
 #gem 'minitest-rails'
