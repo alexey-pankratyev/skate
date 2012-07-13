@@ -1,13 +1,15 @@
 Myndozero::Application.routes.draw do
-  get "pages/home"
 
-  get "pages/contact"
+  match '/Contact', :to => 'pages#contact'
+  match '/About',   :to => 'pages#about'
+  match '/Help',    :to => 'pages#help'
+  match '/Email', :to => 'pages#email'
+  match '/Reviews', :to => 'pages#reviews'
+  match '/Home',   :to => 'pages#home'
 
-  get "pages/about"
-  
-  get "pages/help"
-
-  # The priority is based upon order of creation:
+  root :to => 'pages#home'
+ 
+   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
