@@ -104,7 +104,6 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.33)
-    webrick (1.3.1)
 
 PLATFORMS
   ruby
@@ -116,4 +115,3 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   slim-rails
   sqlite3
-  webrick
