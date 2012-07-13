@@ -1,7 +1,12 @@
 class PagesController < ApplicationController
+include ApplicationHelper
 
   def home
     @title = "Home"
+  end
+  
+  def help
+    @title = "Help"
   end
 
   def contact
@@ -12,8 +17,11 @@ class PagesController < ApplicationController
     @title = "About"
   end
 
-  def help
-    @title = "Help"
+  def reviews
+    @title = "Reviews"
   end
 
+  def email
+    @title = "Email"
+  end
 end
