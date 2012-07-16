@@ -107,6 +107,12 @@ nav ul li a:hover {
 }
 
 /* Sign up button */
+p{ 
+  font-size: 100%;
+  color: #F0D315;
+  text-shadow: red 1px 1px 2px, red 0 0 1em;
+
+ }
 
 a.signup_button {
   margin-left: auto;
