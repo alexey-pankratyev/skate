@@ -19,25 +19,25 @@ end
 group :production do
 gem "pg"
 end
-#group :development do
- # gem 'rspec-rails'
-  #end
+group :development do
+  gem 'rspec-rails'
+  end
   
-#  group :test do
-#    gem 'rspec-rails'
-#    gem 'webrat'
-#    gem 'spork'
-#    gem 'autotest-notification'
-#    #gem 'autotest-rails-pure', '4.1.2'
-#    #gem 'autotest-fsevent', '0.2.4'
-#    #gem 'autotest-growl', '0.2.9'
- #  end
+ group :test do
+    gem 'rspec-rails'
+    gem 'webrat'
+    gem 'spork'
+    gem 'autotest-notification'
+    #gem 'autotest-rails-pure', '4.1.2'
+    #gem 'autotest-fsevent', '0.2.4'
+    #gem 'autotest-growl', '0.2.9'
+   end
 
 #group :test, :development do
 #gem 'minitest-rails'
 #gem 'shoulda-matchers'
-#  gem 'cucumber'
-#  gem 'cucumber-rails', :require => false
+#gem 'cucumber'
+#gem 'cucumber-rails', :require => false
 #gem 'capybara'
 #gem 'factory_girl_rails'
 #gem 'database_cleaner'
