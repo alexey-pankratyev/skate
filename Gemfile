@@ -20,6 +20,7 @@ group :production do
 gem "pg"
 end
 group :development do
+  gem 'annotate'
   gem 'rspec-rails'
   end
   
@@ -28,6 +29,7 @@ group :development do
     gem 'webrat'
     gem 'spork'
     gem 'autotest-notification'
+    gem 'database_cleaner'
     #gem 'autotest-rails-pure', '4.1.2'
     #gem 'autotest-fsevent', '0.2.4'
     #gem 'autotest-growl', '0.2.9'

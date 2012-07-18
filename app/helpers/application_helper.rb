@@ -1,4 +1,7 @@
 module ApplicationHelper
+   def logo
+       image_tag("onegasity.jpg", :alt => "Myndozero", :class => "round") 
+     end
 
   # Return a title on a per-page basis.
   def title
