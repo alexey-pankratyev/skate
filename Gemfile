@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-
+gem "gravatar_image_tag"
 gem 'rails', '3.2.6'
 #gem "webrick"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'sqlite3', :group => [:development, :test]
+gem 'pg', :group => [:development, :test]
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -13,14 +13,16 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
+gem 'annotate'
 
   gem 'uglifier' #, '>= 1.0.3'
 end
 group :production do
 gem "pg"
+#gem 'annotate'
 end
 group :development do
-  gem 'annotate'
+ # gem 'annotate'
   gem 'rspec-rails'
   end
   
@@ -28,6 +30,7 @@ group :development do
     gem 'rspec-rails'
     gem 'webrat'
     gem 'spork'
+    gem "factory_girl_rails"
     gem 'autotest-notification'
     gem 'database_cleaner'
     #gem 'autotest-rails-pure', '4.1.2'

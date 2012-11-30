@@ -1,8 +1,6 @@
 Myndozero::Application.routes.draw do
 
-resources :users
-  match '/signup', :to => 'users#new'
-
+  get "users/new"
 
   match '/Contact', :to => 'pages#contact'
   match '/About',   :to => 'pages#about'
@@ -10,9 +8,12 @@ resources :users
   match '/Email', :to => 'pages#email'
   match '/Reviews', :to => 'pages#reviews'
   match '/Home',   :to => 'pages#home'
-
+ 
+  resources :users
+  match '/signup', :to => 'users#new'
 
   root :to => 'pages#home'
+
  
    # The priority is based upon order of creation:
   # first created -> highest priority.
