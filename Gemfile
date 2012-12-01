@@ -19,6 +19,8 @@ gem 'annotate'
 end
 group :production do
 gem "pg"
+gem "factory_girl_rails"
+
 #gem 'annotate'
 end
 group :development do
