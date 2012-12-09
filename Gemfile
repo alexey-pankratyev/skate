@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "gravatar_image_tag"
+gem 'gravatar_image_tag' 
 gem 'rails', '3.2.6'
 gem 'pg', :group => [:development, :test]
 
