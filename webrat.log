@@ -53,3 +53,8 @@ REQUESTING PAGE: GET / with {} and HTTP headers {}
 REQUESTING PAGE: GET / with {} and HTTP headers {}
 REQUESTING PAGE: GET / with {} and HTTP headers {}
 REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"utf8"=>"✓", "authenticity_token"=>"Nk8oZMG60Wb72ChgsSU9dTlE+66mI/fwHa3MRn8TQoQ=", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /users with {"utf8"=>"✓", "authenticity_token"=>"VfEKbS2gShJusOZZb823eE5qIhEeWtJsYsYhrFqc218=", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET http://www.example.com/users/87 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
