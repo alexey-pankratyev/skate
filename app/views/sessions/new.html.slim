@@ -1,0 +1,19 @@
+h1 Sign in
+
+= form_for(:session, :url => sessions_path) do |f| 
+  div class="field"
+    = f.label :email
+    p 
+    = f.text_field :email 
+    p
+  div class="field"
+    = f.label :password
+    p  
+    = f.password_field :password
+    p
+  div class="actions"
+    = f.submit "Sign in"
+  end 
+
+     p  New user?
+= link_to "Sign up now!", signup_path 
