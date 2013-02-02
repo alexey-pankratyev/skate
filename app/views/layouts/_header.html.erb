@@ -2,10 +2,18 @@
       <nav class="round">
          <ul>            
             <li><%= link_to "Главная", 'Home' %></li>
+            <% if signed_in? %>
+            <li><%= link_to "Профиль", current_user %></li>
+            <% end %>   
             <li><%= link_to "Куда ехать?!", 'Help' %></li>
             <li><%= link_to "Цены", 'About' %></li>
             <li><%= link_to "Фотогалерея", 'Contact' %></li>
+            <% if signed_in? %>
+                 <li><%= link_to "Выйти!", signout_path, :method => :delete %></li>
+            <% else %>
+                 <li><%= link_to "login", signin_path %></li>
+            <% end %> 
          </ul>
-        <p align="center" <%= link_to logo, root_path %>    </p>
-            </nav>
-      </header>
+            <p align="center" <%= link_to logo, root_path %>    </p>
+       </nav>
+    </header>

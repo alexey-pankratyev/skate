@@ -4,7 +4,7 @@ module ApplicationHelper
      end
 
   # Return a title on a per-page basis.
-  def title
+   def title
     base_title = "Mynda"
     if @title.nil?
       base_title
