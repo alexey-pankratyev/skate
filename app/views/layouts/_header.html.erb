@@ -11,7 +11,7 @@
             <% if signed_in? %>
                  <li><%= link_to "Выйти!", signout_path, :method => :delete %></li>
             <% else %>
-                 <li><%= link_to "login", signin_path %></li>
+                 <li><%= link_to "Войти!", signin_path %></li>
             <% end %> 
          </ul>
             <p align="center" <%= link_to logo, root_path %>    </p>
