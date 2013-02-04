@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
-  
+
+   force_ssl
+
+ 
   def new
      @title = "Sign in"
   end
