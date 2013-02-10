@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'gravatar_image_tag' 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.8'
 gem 'pg', :group => [:development, :test]
-
+gem 'will_paginate'
+gem 'typus', :git => 'git://github.com/fesplugas/typus.git'
 group :assets do
 
 gem 'sass-rails',   '~> 3.2.3'
@@ -20,10 +21,11 @@ gem 'pg'
 end
 
 group :development do
- # gem 'annotate'
+  gem 'annotate'
   gem 'rspec-rails'
   gem 'factory_girl_rails','1.0'
-  end
+  gem 'faker' 
+end
   
 group :test do
     gem 'rspec-rails'

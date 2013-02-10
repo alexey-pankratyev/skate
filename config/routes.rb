@@ -22,6 +22,8 @@ Myndozero::Application.routes.draw do
   
   root :to => 'pages#home'
 
+  #map.connect ':controller.:format'
+  #map.connect ':controller/:action/:id.:format'
  
    # The priority is based upon order of creation:
   # first created -> highest priority.
