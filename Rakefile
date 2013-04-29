@@ -6,5 +6,5 @@ require File.expand_path('../config/application', __FILE__)
 if ENV['RAILS_ENV'] == "production"
 ActiveSupport::Deprecation.silenced = true
 end
-Myndozero::Application.initialize!
+Myndozero::Application.load_tasks
 
