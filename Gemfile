@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'gravatar_image_tag' 
-gem 'rails' , '3.2.0.rc2'
+gem 'rails' , '3.2.13'
 gem 'pg', :group => [:development, :test]
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
-#gem 'typus', :git => 'git://github.com/fesplugas/typus.git'
+gem 'typus', :git => 'git://github.com/fesplugas/typus.git'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'faker'
