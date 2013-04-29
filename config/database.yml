@@ -33,8 +33,8 @@ test:
   schema_search_path: public
   
   #template: template 1
-#adapter: sqlite3
-#  database: db/test.sqlite3
+  #adapter: sqlite3
+  #  database: db/test.sqlite3
   
 production:
   adapter: postgresql
@@ -44,6 +44,9 @@ production:
   encoding: unicode
   pool: 5
   timeout: 5000
+  host: localhost
+  port: 5432
+  schema_search_path: public
 
 #adapter: 
 # 
