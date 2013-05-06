@@ -7,7 +7,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
 # gem 'typus', :git => 'git://github.com/fesplugas/typus.git'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby'
 gem 'faker'
 

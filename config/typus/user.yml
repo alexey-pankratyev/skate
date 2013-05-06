@@ -1,8 +1,0 @@
-# Use the README file as a reference to customize settings.
-
-User:
-  fields:
-    default: name, email, encrypted_password, salt
-    form: name, email, encrypted_password, salt
-  relationships: 
-  application: Application
