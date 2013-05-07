@@ -1,8 +1,17 @@
 source 'https://rubygems.org'
 
+platforms :ruby do
+  gem 'pg'
+end
+
+platforms :jruby do
+  gem 'trinidad'
+  gem 'jruby-openssl'
+end
+
 gem 'gravatar_image_tag' 
 gem 'rails' , '3.2.13'
-gem 'pg', :group => [:development, :test]
+#gem 'pg' #, :group => [:development, :test]
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
@@ -17,21 +26,17 @@ gem 'faker'
          gem 'coffee-rails', '~> 3.2.1'
          gem 'annotate'
          gem 'uglifier' #, '>= 1.0.3'
-         gem 'jquery-rails'
          gem 'slim-rails'
+         gem 'compass-rails'
 
  end
 
 group :production do
-gem 'pg'
-#gem 'annotate'
+#gem 'pg'
 end
 
 group :development do
-  gem 'annotate'
-  gem 'rspec-rails'
-  gem 'faker' 
-end
+ end
   
 group :test do
     gem 'rspec-rails'
