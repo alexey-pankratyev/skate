@@ -66,6 +66,6 @@ module Myndozero
     config.assets.version = '1.0'
     #####30:05:13
     config.assets.initialize_on_precompile = false 
-    
+    config.assets.digest = true 
   end
 end
