@@ -11,7 +11,7 @@ end
 
 gem 'gravatar_image_tag' 
 gem 'rails' , '3.2.13'
-#gem 'pg' #, :group => [:development, :test]
+gem 'pg' #, :group => [:development, :test]
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
