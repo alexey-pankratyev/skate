@@ -10,8 +10,8 @@ require "sprockets/railtie"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
-  #Bundler.require(:default, :assets, Rails.env)
+  #Bundler.require(*Rails.groups(:assets => %w(development test)))
+  Bundler.require(:default, :assets, Rails.env)
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
@@ -66,8 +66,9 @@ module Myndozero
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     #####30:05:13
+    config.assets.initialize_on_precompile = true
     config.assets.enabled = true
     config.assets.digest = true 
-   # config.serve_static_assets = false
+    #config.serve_static_assets = false
   end
 end
