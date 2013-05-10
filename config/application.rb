@@ -66,7 +66,7 @@ module Myndozero
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     #####30:05:13
-    config.assets.initialize_on_precompile = true
+    config.assets.initialize_on_precompile = false
     config.assets.enabled = true
     config.assets.digest = true 
     #config.serve_static_assets = false
