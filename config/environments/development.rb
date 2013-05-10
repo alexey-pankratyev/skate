@@ -36,5 +36,9 @@ Myndozero::Application.configure do
   config.assets.debug = true
   
   #config.force_ssl = true
+  
+  #config.after_initialize do |app|
+   # app.assets.logger = Logger.new('/dev/null')
+  #end
 
 end

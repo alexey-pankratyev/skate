@@ -1,219 +1,108 @@
 @import "bootstrap";
 
-.container {
-  width: 710px;
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+/* universal */
+
+html {
+  overflow-y: scroll;
 }
 
 body {
-  background: #385FE5;
-}
-
-header {
-  padding-top: 10px;
-}
-
-header img {
-  padding: 1em;
-  background: #1DD80A;
- 
+  padding-top: 60px;
 }
 
 section {
-  margin-top: 29em;
-  font-size: 100%;
-  padding: 10px;
-  background: #848484;
-  width: 645px;
+  overflow: auto;
 }
 
-section h1 {
-  font-size: 200%;
-  color: #EC1530;
-  text-shadow: black 2px 1px 2px, red 0 0 1em;
+textarea {
+  resize: vertical;
 }
 
-/* Links */
-a {
-  /*color: #F4640C;*/
-  text-decoration: none;
-  padding: 40px;
-  font-size: 150%;
-  text-shadow: black 1px 1px 2px, red 0 0 1em;
-  /*font-family: "Times New Roman", Times, serif;*/
- 
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
-a:hover {
-  /*color: #F4640C;*/
-  text-decoration: underline;
-  padding: 40px;
-  font-size: 150%;
-  
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
 }
 
-a:visited {
-  color:  #E6F617;
-  padding: 40px;
-  font-size: 150%;
-}
-a:active {
-    color: #f00; /* Цвет активной ссылки */ 
-   }
-/* Navigation */
-
-nav {
- float: left;
- width: 665px;
-  background-color: #D7CAFA;
-  padding: 4 em;
-  white-space: nowrap;
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
   text-align: center;
 }
-nav ul {
-  text-shadow: black 1px 1px 2px, red 0 0 1em;
-  margin: 0;
-  padding: 1;
-}
-nav ul li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 0.7em;
-}
 
-nav ul li a {
-  padding: 0 4px;
-  font-weight: bold;
-}
-
-nav ul li a:visited {
-  color: #09c;
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
-}
-.in{ 
-    position: absolute; /* Абсолютное позиционирование */
-    top: 10px; /* Положение от нижнего края */
-    left: 250px; /* Положение от правого края */
-    line-height: 1px;
-    /*border: 20px solid #fc0;
-    padding: 0px;
-    height: 0px;
-    background: url(images/figure.jpg) no-repeat;*/
-    width: 500px;
-    height: 250px;/*
-    position: relative;
-    left: 50%;
-    top: 50%;*/
-    background-origin: content-box;
-}
-
-/* Sign up button */
-p{ 
-  font-size: 100%;
-  color: #F0D315;
-  text-shadow: red 1px 1px 2px, red 0 0 1em;
-
- }
-
-a.signup_button {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
   text-align: center;
-  width: 300px;
-  color: #fff;
-  background: #006400;
-  font-size: 150%;
+  font-weight: normal;
+  color: $grayLight;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
   font-weight: bold;
-  padding: 10px;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
 }
-/* Round corners */
-.round {
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
-}
+
+/* footer */
+
 footer {
-  text-align: center;
-  margin-top: 5px;
-  width: 710px;
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover {
+      color: $grayDarker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
 }
 
-footer nav {
-  float: none;
-}
-/* User show page */
+/* image */
 
-table.profile {
-  width: 100%;
-  margin-bottom: 0;
+.img1 {
+border: 1px ridge blue;
 }
-
-td.main {
-  width: 70%;
-  padding: 1em;
-}
-
-td.sidebar {
-  width: 30%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffc;
-}
-
-.profile img.gravatar {
-  border: 1px solid #999;
-  margin-bottom: -15px;
-}
-
-.field_with_errors {
-  margin-top: 10px;
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-.field_with_errors label {
-  color: #fff;
-}
-
-#error_explanation {
-  width: 400px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  background-color: #c00;
-  color: #fff;
-}
-
-#error_explanation p {
-  color: #333;
-  margin-bottom: 0;
-  padding: 5px;
-}
-
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
-
-ul.users {
-  margin-top: 1em;
-}
-
-.users li {
-  list-style: none;
-}
- 

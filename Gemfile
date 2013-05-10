@@ -8,7 +8,8 @@ platforms :jruby do
   gem 'trinidad'
   gem 'jruby-openssl'
 end
-
+gem 'sprockets'
+gem 'thin'
 gem 'gravatar_image_tag' 
 gem 'rails' , '3.2.13'
 gem 'pg' #, :group => [:development, :test]
