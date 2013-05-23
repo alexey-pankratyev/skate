@@ -37,9 +37,13 @@ group :production do
 end
 
 group :development do
+gem 'rspec-rails'
+ gem 'capybara'
+ gem 'webrat'
  end
   
 group :test do
+    gem 'capybara'
     gem 'rspec-rails'
     gem 'webrat'
     gem 'spork'

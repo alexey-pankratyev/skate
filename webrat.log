@@ -688,3 +688,23 @@ REQUESTING PAGE: POST /users with {"utf8"=>"✓", "user"=>{"name"=>"Example User
 REQUESTING PAGE: GET http://www.example.com/users/948 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
 REQUESTING PAGE: GET /signin with {} and HTTP headers {}
 REQUESTING PAGE: POST /sessions with {"utf8"=>"✓", "session"=>{"email"=>"", "password"=>""}, "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /pages/home with {} and HTTP headers {}
+REQUESTING PAGE: GET /Home with {} and HTTP headers {}
+REQUESTING PAGE: GET /Home with {} and HTTP headers {}
+REQUESTING PAGE: GET /Home with {} and HTTP headers {}
+REQUESTING PAGE: GET Home with {} and HTTP headers {}
+REQUESTING PAGE: GET Home with {} and HTTP headers {}
+REQUESTING PAGE: GET Home with {} and HTTP headers {}
+REQUESTING PAGE: GET Home with {} and HTTP headers {}
+REQUESTING PAGE: GET Home with {} and HTTP headers {}
+REQUESTING PAGE: GET Help with {} and HTTP headers {}
+REQUESTING PAGE: GET Home with {} and HTTP headers {}
+REQUESTING PAGE: GET Help with {} and HTTP headers {}
+REQUESTING PAGE: GET Home with {} and HTTP headers {}
+REQUESTING PAGE: GET Help with {} and HTTP headers {}

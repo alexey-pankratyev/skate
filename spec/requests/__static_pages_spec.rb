@@ -1,31 +1,44 @@
 require 'spec_helper'
 
-describe "LayoutLinks" do
+describe "Static pages" do
 
-  it "should have a Home page at '/'" do
-    get '/'
-    response.should have_selector('title', :content => "Home")
+  describe "Home page" do
+  # subject { page }
+  before { visit root_path }
+    it { should have_selector('title', text: full_title('')) }
   end
 
-  it "should have a Contact page at '/Contact'" do
-    get '/Contact'
-    response.should have_selector('title', :content => "Contact")
-  end
-
-  it "should have an About page at '/about'" do
-    get '/About'
-    response.should have_selector('title', :content => "About")
-  end
-
-  it "should have a Help page at '/help'" do
+  it "should have a Help page at '/Help'" do
     get '/Help'
     response.should have_selector('title', :content => "Help")
   end
 
- it "should have a signup page at '/signup'" do
+  it "should have a signup page at '/About'" do
+    get '/About'
+    response.should have_selector('title', :content => "About")
+  end
+ 
+  it "should have a signup page at 'Contact'" do
+    get 'Contact'
+    response.should have_selector('title', :content => "Contact")
+  end
+
+  it "should have a Help page at '/Email'" do
+    get '/Email'
+    response.should have_selector('title', :content => "Email")
+  end
+
+  it "should have a Help page at '/Reviews'" do
+    get '/Reviews'
+    response.should have_selector('title', :content => "Reviews")
+  end
+
+  it "should have a signup page at '/signup'" do
     get '/signup'
     response.should have_selector('title', :content => "Sign up")
   end
+
+end
 
   describe "when not signed in" do
     it "should have a signin link" do
@@ -57,8 +70,6 @@ describe "LayoutLinks" do
      # response.should have_selector("a", :href => user_path(@user),
      #                                    :content => "Profile")
       end
-
-  end
 
 end
 

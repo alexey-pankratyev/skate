@@ -6,6 +6,11 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
+#tests 
+#config.generators do |g|
+#  g.test_framework :rspec
+#  g.integration_tool :rspec
+#end
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)
