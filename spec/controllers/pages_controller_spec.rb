@@ -1,3 +1,5 @@
+#!/bin/env ruby
+# encoding: utf-8
 require 'spec_helper'
 describe PagesController do
   render_views
@@ -7,6 +9,13 @@ describe PagesController do
   end
 
   describe "GET 'home'" do
+    
+    it "should have the content 'mynda'" do
+      get 'home'
+    # response.should be_redirect  
+      response.body.should include("Мянда затерянный край вдали городов !!!") 
+    end
+
     it "returns http success" do
       get 'home'
       response.should be_success

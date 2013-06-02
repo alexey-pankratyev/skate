@@ -38,12 +38,12 @@ end
 
 group :development do
 gem 'rspec-rails'
- gem 'capybara'
+ gem 'capybara', '1.1.2'
  gem 'webrat'
  end
   
 group :test do
-    gem 'capybara'
+    gem 'capybara', '1.1.2'
     gem 'rspec-rails'
     gem 'webrat'
     gem 'spork'
