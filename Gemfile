@@ -8,6 +8,7 @@ platforms :jruby do
   gem 'trinidad'
   gem 'jruby-openssl'
 end
+gem 'rb-inotify'
 gem 'sprockets'
 gem 'thin'
 gem 'gravatar_image_tag' 
@@ -20,18 +21,12 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby'
 gem 'faker'
-
- group :assets do
-
-         gem 'sass-rails',   '~> 3.2.3'
-         gem 'coffee-rails', '~> 3.2.1'
-         gem 'annotate'
-         gem 'uglifier' #, '>= 1.0.3'
-         gem 'slim-rails'
-         gem 'compass-rails'
-
- end
-
+gem 'sass-rails',   '~> 3.2.3'
+gem 'coffee-rails', '~> 3.2.1'
+gem 'annotate'
+gem 'uglifier' #, '>= 1.0.3'
+gem 'slim-rails'
+gem 'compass-rails'
 group :production do
  gem 'pg'
 end

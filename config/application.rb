@@ -74,5 +74,6 @@ module Myndozero
     config.assets.enabled = true
     config.assets.digest = true 
     #config.serve_static_assets = false
+    config.assets.precompile += %w(*.scss *.png *.jpg *.jpeg *.gif)
   end
 end
