@@ -9,45 +9,31 @@ describe "Static pages" do
   before(:each) do
     @base_title = "Mynda"
   end
+
+  subject { response }
   
   describe "Home page" do
-
-    it "should have the content 'mynda'" do
-      visit 'Home'
-      response.body.should include("Мянда затерянный край вдали городов !!!") 
-    end
-
-    it "should have the base title" do
-      visit 'Home'
-      response.should have_selector("title",:content => @base_title+"|Home")
-    end
-   
+     before { visit 'Home' }
+       it { body.should include("Мянда затерянный край вдали городов !!!") } 
+       it { should have_selector("title",:content => @base_title+"|Home") }
   end
   
   describe "Help page" do
-
-    it "should have the content 'Primer'" do
-      visit 'Help'
+    before { visit 'Help' }
     # response.should be_redirect  
-      response.body.should include("Пример для саита!") 
-    end
+    it { body.should include("Пример для саита!") } 
+    it { should have_selector("title",:content => @base_title+"|Help") }
   end
 
   describe "About page" do
-
-    it "should have the content 'Primer'" do
-      visit 'About'
-    # response.should be_redirect  
-      response.body.should include("Пример для саита!") 
-    end
+    before { visit 'About' }
+    it { body.should include("Пример для саита!") }
+    it { should have_selector("title",:content => @base_title+"|About") }
   end
 
   describe "Contact page" do
-
-    it "should have the content 'Zjena'" do
-      visit 'Contact'
-    # response.should be_redirect  
-      response.body.should include("Моя любимая жена!") 
-    end
+    before { visit 'Contact' }
+    it { body.should include("Моя любимая жена!") } 
+    it { should have_selector("title",:content => @base_title+"|Contact") }
   end
 end

@@ -66,15 +66,12 @@ module Myndozero
 
     # Enable the asset pipeline
     config.assets.enabled = true
-
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    #####30:05:13
     config.assets.initialize_on_precompile = true
-    #config.assets.digest = true 
     config.serve_static_assets = true
     config.assets.precompile += %w[application.css application.js *.css *.scss *.png *.jpg *.jpeg *.gif] 
     config.assets.compile = true
-    #%w(*.css *.scss *.png *.jpg *.jpeg *.gif)
+    
   end
 end
