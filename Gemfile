@@ -5,12 +5,13 @@ platforms :ruby do
 end
 
 platforms :jruby do
-  gem 'trinidad'
+  gem 'trinidadiii'
   gem 'jruby-openssl'
-end
+ end
+
 gem 'rb-inotify'
 gem 'sprockets'
-gem 'thin'
+#gem 'thin'
 gem 'gravatar_image_tag' 
 gem 'rails' , '3.2.13'
 gem 'pg' #, :group => [:development, :test]

@@ -4,12 +4,14 @@ Myndozero::Application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
-  config.cache_classes = true
-  config.action_view.cache_template_loading = true
+  #config.cache_classes = true
+  #config.action_view.cache_template_loading = true
   
 
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
+
+  config.cache_classes = false
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
@@ -38,9 +40,13 @@ Myndozero::Application.configure do
   config.assets.debug = true
   
   #config.force_ssl = true
-  
-  #config.after_initialize do |app|
-   # app.assets.logger = Logger.new('/dev/null')
-  #end
+
+  #config.assets.precompile += [/^a-z0-9+(css|js)$/]
+  #config.assets.compile = true
+  config.action_controller.perform_caching = true
+
+  config.after_initialize do |app|
+    app.assets.logger = Logger.new('/dev/null')
+  end
   config.reload_plugins = true
 end
