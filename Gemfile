@@ -11,6 +11,7 @@ platforms :jruby do
 
 gem 'rb-inotify'
 gem 'sprockets'
+gem 'launchy'
 #gem 'thin'
 gem 'gravatar_image_tag' 
 gem 'rails' , '3.2.13'

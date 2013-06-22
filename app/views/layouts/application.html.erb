@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mynda|<%= @title %></title>
+  <title><%= title(yield(:title)) %></title>
   <%= csrf_meta_tags %>
   <%= render "layouts/stylesheets" %>
   <%= stylesheet_link_tag "application", media: "all" %>
