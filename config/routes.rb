@@ -1,15 +1,19 @@
 Myndozero::Application.routes.draw do
 
   get "sessions/new"
-
+  #get "pages/new"
   get "users/new"
 
-  match '/Contact', :to => 'pages#contact'
-  match '/About',   :to => 'pages#about'
-  match '/Help',    :to => 'pages#help'
-  match '/Email', :to => 'pages#email'
-  match '/Reviews', :to => 'pages#reviews'
-  match '/Home',   :to => 'pages#home'
+  root :to => 'pages#home'
+  
+  resources :pages
+  
+    match '/home',   :to => 'pages#home'
+    match '/contact', :to => 'pages#contact'
+    match '/about',   :to => 'pages#about'
+    match '/help',    :to => 'pages#help'
+    match '/email', :to => 'pages#email'
+    match '/reviews', :to => 'pages#reviews'
  
   resources :users
     
@@ -20,7 +24,6 @@ Myndozero::Application.routes.draw do
     match '/signin',  :to => 'sessions#new'
     match '/signout', :to => 'sessions#destroy' 
   
-  root :to => 'pages#home'
 
   #map.connect ':controller.:format'
   #map.connect ':controller/:action/:id.:format'

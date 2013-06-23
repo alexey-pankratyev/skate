@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
 include ApplicationHelper
 
   def home
@@ -24,4 +25,5 @@ include ApplicationHelper
   def email
     @title = "Email"
   end
+  
 end

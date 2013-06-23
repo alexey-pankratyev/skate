@@ -51,10 +51,4 @@ describe "Static pages" do
      it { should have_selector('title', content: full_title("Reviews")) }
   end
 
-  describe "Contact page" do
-    before { visit 'Contact' }
-     it { response.body.should include("Пример для саита!") } 
-     it { should have_selector('title', content: full_title("Contact")) }
-  end
-
-end
+ end
