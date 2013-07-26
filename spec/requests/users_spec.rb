@@ -2,8 +2,16 @@ require 'spec_helper'
 
 describe "Users" do
 
- describe "signup" do
+ subject { response }
 
+  describe "signup page" do
+    before { visit signup_path }
+
+    it { should have_selector('h1',    content: 'Sign up') }
+    it { should have_selector('title', content: full_title('Sign up')) }
+  end
+
+ describe "signup" do
   describe "failure" do
 
    it "should not make a new user" do

@@ -11,42 +11,53 @@ describe "Static pages" do
   end
 
   
-  subject { response }
+ subject { response }
 
+  shared_examples_for "all static pages" do
+     it { should have_selector('h4', content: heading) }
+     it { should have_selector('title', content: full_title(page_title)) }
+ end
+ 
   describe "Home page" do
-     before { visit 'Home' }
-       it { response.body.should include("Мянда затерянный край вдали городов !!!") } 
-       it { should have_selector('title', content: full_title('')) }
+     before { visit '/' }
+       #click_button(Home) 
+       let(:heading)    { 'Мянда затерянный край вдали городов !!!' }
+       #it { response.body.should include("Мянда затерянный край вдали городов !!!") } 
+       #it { should have_selector('title', content: full_title('')) }
+       let(:page_title) { '' }
+       it_should_behave_like "all static pages"
        it { should_not have_selector 'title', text: '| Home' }
   end
   
   describe "Help page" do
-    before { visit 'Help' }
+    before { visit '/help' }
     # response.should be_redirect  
-    it { response.body.should include("Пример для саита!") } 
-    it { should have_selector('title',content:  full_title('Help')) }
+    #click_link 'Help'
+    let(:heading)    { 'Пример для саита!' } 
+    let(:page_title) { 'Help' }
+    it_should_behave_like "all static pages"
   end
 
   describe "About page" do
-    before { visit 'About' }
+    before { visit '/about' }
     it { response.body.should include("Пример для саита!") }
     it { should have_selector('title', content: full_title('About')) }
   end
 
   describe "Contact page" do
-    before { visit 'Contact' }
+    before { visit '/contact' }
      it { response.body.should include("Моя любимая жена!") } 
      it { should have_selector('title', content: full_title("Contact")) }
   end
   
   describe "Email page" do
-    before { visit 'Email' }
+    before { visit '/email' }
      it { response.body.should include("Пример для саита!") } 
      it { should have_selector('title', content: full_title("Email")) }
   end
 
   describe "Reviews page" do
-    before { visit 'Reviews' }
+    before { visit 'reviews' }
      it { response.body.should include("Пример для саита!") } 
      it { should have_selector('title', content: full_title("Reviews")) }
   end
