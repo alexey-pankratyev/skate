@@ -1,14 +1,5 @@
 source 'https://rubygems.org'
 
-platforms :ruby do
-  gem 'pg'
-end
-
-platforms :jruby do
-  gem 'trinidadiii'
-  gem 'jruby-openssl'
- end
-
 gem 'rb-inotify'
 gem 'sprockets'
 gem 'launchy'
@@ -29,23 +20,35 @@ gem 'annotate'
 gem 'uglifier' #, '>= 1.0.3'
 gem 'slim-rails'
 gem 'compass-rails'
+
+#platforms :ruby do
+#  gem 'pg'
+#end
+
+#platforms :jruby do
+  #gem 'trinidadiii'
+  #gem 'jruby-openssl'
+ #end
+
+
 group :production do
  gem 'pg'
 end
 
-group :development do
-gem 'rspec-rails'
- gem 'capybara', '1.1.2'
+group :development, :test  do
+ gem 'rspec-rails'
+ gem 'guard-spork', :github => 'guard/guard-spork'
+ gem 'spork'
+ gem 'guard-rspec', '1.2.1'
  gem 'webrat'
- end
-  
+end
+
 group :test do
-    gem 'capybara', '1.1.2'
-    gem 'rspec-rails'
-    gem 'webrat'
-    gem 'spork'
-    gem 'factory_girl_rails', '1.0'
-    gem 'autotest-notification'
-    gem 'database_cleaner'
- end
+ gem 'capybara', '1.1.2'
+ gem 'rb-inotify'
+ gem 'libnotify', '0.5.9'
+ gem 'factory_girl_rails', '1.0'
+ gem 'autotest-notification'
+ gem 'database_cleaner'
+end
 

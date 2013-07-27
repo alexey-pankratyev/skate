@@ -62,4 +62,10 @@ describe "Static pages" do
      it { should have_selector('title', content: full_title("Reviews")) }
   end
 
+  it "should have the right links on the layout" do
+    visit '/'
+    click_link "Цены"
+     response.should have_selector 'title', content: full_title('About')
+   end
+
  end
