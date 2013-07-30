@@ -16,7 +16,12 @@ describe "Static pages" do
   shared_examples_for "all static pages" do
      it { should have_selector('h4', content: heading) }
      it { should have_selector('title', content: full_title(page_title)) }
- end
+  end
+
+  shared_examples_for "p" do
+     it { should have_selector('p', content: heading) }
+     it { should have_selector('title', content: full_title(page_title)) }
+  end
  
   describe "Home page" do
      before { visit '/' }
@@ -32,16 +37,17 @@ describe "Static pages" do
   describe "Help page" do
     before { visit '/help' }
     # response.should be_redirect  
-    #click_link 'Help'
+    click_link "Куда ехать?!"
     let(:heading)    { 'Пример для саита!' } 
     let(:page_title) { 'Help' }
-    it_should_behave_like "all static pages"
+    it_should_behave_like "p"
   end
 
   describe "About page" do
     before { visit '/about' }
-    it { response.body.should include("Пример для саита!") }
-    it { should have_selector('title', content: full_title('About')) }
+    let(:heading)    { 'Пример для саита!' }
+    let(:page_title) { 'About' }
+    it_should_behave_like "p"
   end
 
   describe "Contact page" do
