@@ -25,10 +25,7 @@ describe "Static pages" do
  
   describe "Home page" do
      before { visit '/' }
-       #click_button(Home) 
        let(:heading)    { 'Мянда затерянный край вдали городов !!!' }
-       #it { response.body.should include("Мянда затерянный край вдали городов !!!") } 
-       #it { should have_selector('title', content: full_title('')) }
        let(:page_title) { '' }
        it_should_behave_like "all static pages"
        it { should_not have_selector 'title', text: '| Home' }
@@ -36,8 +33,11 @@ describe "Static pages" do
   
   describe "Help page" do
     before { visit '/help' }
+<<<<<<< HEAD
     # response.should be_redirect  
     click_link "Куда ехать?!"
+=======
+>>>>>>> b5518879d3d7a2ec77a530039a6c1b31d3746992
     let(:heading)    { 'Пример для саита!' } 
     let(:page_title) { 'Help' }
     it_should_behave_like "p"
@@ -64,8 +64,14 @@ describe "Static pages" do
 
   describe "Reviews page" do
     before { visit 'reviews' }
-     it { response.body.should include("Пример для саита!") } 
-     it { should have_selector('title', content: full_title("Reviews")) }
+    it { response.body.should include("Пример для саита!") } 
+    it { should have_selector('title', content: full_title("Reviews")) }
   end
+
+  it "should have the right links on the layout" do
+    visit '/'
+    click_link "Цены"
+    response.should have_selector 'title', content: full_title('About')
+   end
 
  end
