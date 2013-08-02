@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
              :confirmation => true,
              :length       => { :within => 6..40 }
 
+before_save { |user| user.email = email.downcase }
+
+
 before_save :encrypt_password
 
    def has_password?(submitted_password) 

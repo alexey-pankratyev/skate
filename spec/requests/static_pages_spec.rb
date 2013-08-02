@@ -33,11 +33,6 @@ describe "Static pages" do
   
   describe "Help page" do
     before { visit '/help' }
-<<<<<<< HEAD
-    # response.should be_redirect  
-    click_link "Куда ехать?!"
-=======
->>>>>>> b5518879d3d7a2ec77a530039a6c1b31d3746992
     let(:heading)    { 'Пример для саита!' } 
     let(:page_title) { 'Help' }
     it_should_behave_like "p"
