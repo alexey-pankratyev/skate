@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+rsource 'https://rubygems.org'
 
 
 gem 'sprockets'
@@ -36,7 +36,7 @@ end
 
 group :development, :test  do
  gem 'rspec-rails'
- gem 'guard-spork', :github => 'guard/guard-spork'
+ gem 'guard-spork'
  gem 'spork'
  gem 'guard-rspec', '1.2.1'
  gem 'webrat'
@@ -54,4 +54,5 @@ group :test do
  gem 'autotest-notification'
  gem 'database_cleaner'
 end
+
 
