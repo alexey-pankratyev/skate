@@ -42,19 +42,19 @@ describe "Static pages" do
   describe "Contact page" do
     before { visit '/contact' }
      it { response.body.should include("Моя любимая жена!") } 
-     it { should have_selector('title', content: full_title("Contact")) }
+     it { should have_selector('title', content: full_title('Contact')) }
   end
   
   describe "Email page" do
     before { visit '/email' }
      it { response.body.should include("Пример для саита!") } 
-     it { should have_selector('title', content: full_title("Email")) }
+     it { should have_selector('title', content: full_title('Email')) }
   end
 
   describe "Reviews page" do
     before { visit 'reviews' }
     it { response.body.should include("Пример для саита!") } 
-    it { should have_selector('title', content: full_title("Reviews")) }
+    it { should have_selector('title', content: full_title('Reviews')) }
   end
 
   it "should have the right links on the layout" do

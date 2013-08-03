@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rb-inotify'
+
 gem 'sprockets'
 gem 'launchy'
 #gem 'thin'
@@ -16,7 +16,6 @@ gem 'bcrypt-ruby'
 gem 'faker'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'
-gem 'annotate'
 gem 'uglifier' #, '>= 1.0.3'
 gem 'slim-rails'
 gem 'compass-rails'
@@ -41,6 +40,10 @@ group :development, :test  do
  gem 'spork'
  gem 'guard-rspec', '1.2.1'
  gem 'webrat'
+end
+
+group :development do
+  gem 'annotate', '2.5.0'
 end
 
 group :test do
