@@ -1,4 +1,4 @@
-rsource 'https://rubygems.org'
+source 'https://rubygems.org'
 
 
 gem 'sprockets'
@@ -12,7 +12,7 @@ gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
 # gem 'typus', :git => 'git://github.com/fesplugas/typus.git'
 gem 'bootstrap-sass', '2.1'
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'faker'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'

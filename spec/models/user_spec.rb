@@ -2,27 +2,29 @@
 #
 # Table name: users
 #
-#  id                 :integer          not null, primary key
-#  name               :string(255)
-#  email              :string(255)
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  encrypted_password :string(255)
-#  salt               :string(255)
-#  admin              :boolean
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  salt            :string(255)
+#  admin           :boolean
+#  password_digest :string(255)
 #
 
 require 'spec_helper'
 
 describe User do
   
-    before { @user = User.new(name: "Example User", email: "user@example.com") }
+    before { @user = User.new(name: "Example User", email: "user@example.com", 
+              password: "foobar", password_confirmation: "foobar") }
     subject { @user }
 
     it { should respond_to(:name) }
     it { should respond_to(:email) }
-    it { should respond_to(:encrypted_password) }
-     
+    it { should respond_to(:password_digest) }
+    it { should respond_to(:password) }
+    it { should respond_to(:password_confirmation) }
 
     it { should be_valid }
 
@@ -80,6 +82,44 @@ describe User do
 
     it { should_not be_valid }
   end
+
+describe "when password is not present" do
+  before { @user.password = @user.password_confirmation = " " }
+  it { should_not be_valid }
+end
+
+describe "when password doesn't match confirmation" do
+  before { @user.password_confirmation = "mismatch" }
+  it { should_not be_valid }
+end
+
+describe "when password confirmation is nil" do
+  before { @user.password_confirmation = nil }
+  it { should_not be_valid }
+end
+
+describe "with a password that's too short" do
+  before { @user.password = @user.password_confirmation = "a" * 5 }
+  it { should be_invalid }
+end
+
+describe "return value of authenticate method" do
+  before { @user.save }
+  let(:found_user) { User.find_by_email(@user.email) }
+
+  describe "with valid password" do
+    it { should == found_user.authenticate(@user.password) }
+  end
+
+  describe "with invalid password" do
+    let(:user_for_invalid_password) { found_user.authenticate("invalid") }
+
+    it { should_not == user_for_invalid_password }
+    specify { user_for_invalid_password.should be_false }
+  end
+end
+
+
 
 end
 #   it "should create a new instance given valid attributes" do
