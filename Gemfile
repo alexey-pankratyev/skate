@@ -50,9 +50,11 @@ group :test do
  gem 'capybara', '1.1.2'
  gem 'rb-inotify'
  gem 'libnotify', '0.5.9'
- gem 'factory_girl_rails', '1.0'
+ gem 'factory_girl_rails', '4.1.0'
  gem 'autotest-notification'
  gem 'database_cleaner'
 end
+
+
 
 
