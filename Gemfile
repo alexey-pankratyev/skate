@@ -19,6 +19,7 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'uglifier' #, '>= 1.0.3'
 gem 'slim-rails'
 gem 'compass-rails'
+gem 'russian', '~> 0.6.0'
 
 #platforms :ruby do
 #  gem 'pg'
