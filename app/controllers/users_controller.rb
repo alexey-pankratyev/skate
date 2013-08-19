@@ -23,7 +23,7 @@
      @user = User.new(params[:user]) 
     if @user.save
      sign_in @user
-     flash[:success] = "Welcome to the Mynda !"
+     flash[:success] = "Welcome"
      redirect_to @user
     else
      @title = "Sign up"
