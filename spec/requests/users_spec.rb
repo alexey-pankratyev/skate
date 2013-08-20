@@ -1,15 +1,17 @@
+#!/bin/env ruby
+# encoding: utf-8
 require 'spec_helper'
 
 describe "Users" do
 
  subject { response }
 
-  describe "signup page" do
-    before { visit signup_path }
+  # describe "signup page" do
+  #   before { visit signup_path }
 
-    it { should have_selector('h1',    content: 'Sign up') }
-    it { should have_selector('title', content: full_title('Sign up')) }
-  end
+  #   it { should have_selector('h1',    content: 'Sign up') }
+  #   it { should have_selector('title', content: full_title('Sign up')) }
+  # end
 
    describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
@@ -17,6 +19,55 @@ describe "Users" do
 
     it { should have_selector('h1',    content: user.name) }
     it { should have_selector('title', content: user.name) }
+  end
+
+
+ describe "signup" do
+
+    before { visit signup_path }
+
+    let(:submit) { "Sign up" }
+  
+    describe "with invalid information" do
+
+      describe "after submission" do
+        
+        before { click_button submit }
+
+        it { should have_selector('title', content: 'Sign up') }
+      #  it { should have_content('error') }
+      end
+ 
+      it "should not create a user" do
+        expect { click_button submit }.not_to change(User, :count)
+      end
+
+    end
+
+    
+    describe "with valid information" do
+
+      before do
+        fill_in "Имя",         with: "Example User"
+        fill_in "Мыло",        with: "user@example.com"
+        fill_in "Пароль",     with: "foobar"
+        fill_in "Confirmation", with: "foobar"
+      end
+
+      it "should create a user" do
+        expect { click_button submit }.to change(User, :count).by(1)
+      end
+
+       describe "after saving the user" do
+        before { click_button submit }
+         let(:user) { User.find_by_email('user@example.com') }
+         it { response.body.should include(user.name) } 
+         it { should have_selector('title', content: user.name) }
+         it { should have_selector('div.alert.alert-success', content: 'Welcome') }
+
+       end
+
+    end
   end
 end
 #  describe "signup" do

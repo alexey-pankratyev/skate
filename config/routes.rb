@@ -1,6 +1,6 @@
 Myndozero::Application.routes.draw do
 
-  # get "sessions/new"
+  #get "sessions/new"
   #get "pages/new"
   #get "users/new"
 
@@ -8,11 +8,11 @@ Myndozero::Application.routes.draw do
   
   resources :pages
   
-    # match '/home',   :to => 'pages#home'
+    # match '/home',  :to => 'pages#home'
     match '/contact', :to => 'pages#contact'
     match '/about',   :to => 'pages#about'
     match '/help',    :to => 'pages#help'
-    match '/email', :to => 'pages#email'
+    match '/email',   :to => 'pages#email'
     match '/reviews', :to => 'pages#reviews'
  
   resources :users
