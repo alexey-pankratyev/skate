@@ -2,10 +2,9 @@ class SessionsController < ApplicationController
 
 #    force_ssl
 
- 
-#   def new
-#      @title = "Sign in"
-#   end
+   def new
+     @title = "Sign in"
+   end
   
 #   def create
 #      user = User.authenticate(params[:session][:email],
