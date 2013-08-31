@@ -60,12 +60,14 @@ describe "Users" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
 
-      describe "after saving the user" do
+      describe "after saving the user"  , js: true do
         before { click_button submit }
          let(:user) { User.find_by_email('user@example.com') }
+        
          it { response.body.should include(user.name) } 
          it { should have_selector('title', content: user.name) }
          it { should have_selector('div.alert.alert-success', content: 'Welcome') }
+         it { should have_link('Выйти') }
 
       end
 
