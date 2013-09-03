@@ -26,6 +26,7 @@ describe "Authentication" do
       it { should have_selector('div.alert.alert-error', content: 'Invalid') }
 
       describe "after visiting another page" do
+        it { response.body.should have_link('Главная', :href => root_path) }
         before { click_link "Главная" }
         it { should_not have_selector('div.alert.alert-error') }
       end
@@ -35,21 +36,21 @@ describe "Authentication" do
 
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
+      
       before do
         visit signin_path
         fill_in "Email",    with: user.email.upcase
         fill_in "Password", with: user.password
         click_button "Sign in"
-        
-      end
-
-      it { should have_selector('title', text: user.name) }
-      it { should have_link('Профиль', href: user_path(user)) }
-      it { should have_link('Выйти', href: signout_path) }
-
+      end 
+      
+      it { should have_selector('title', content: user.name) }
+      it { response.body.should have_link('Профиль', href: user_path(user)) }
+      it { response.body.should have_link('Выйти', href: signout_path) }
+      
       describe "followed by signout" do
-        before { click_link "Выйти" }
-        it { should have_link('Войти') }
+         before { click_link "Выйти", :method => :delete }
+         it { response.body.should have_link('Войти', href: signin_path) }
       end
       
     end
