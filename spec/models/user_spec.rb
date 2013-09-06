@@ -10,6 +10,7 @@
 #  salt            :string(255)
 #  admin           :boolean
 #  password_digest :string(255)
+#  remember_token  :string(255)
 #
 
 require 'spec_helper'
@@ -20,18 +21,27 @@ describe User do
               password: "foobar", password_confirmation: "foobar") }
     subject { @user }
 
+
     it { should respond_to(:name) }
     it { should respond_to(:email) }
     it { should respond_to(:password_digest) }
     it { should respond_to(:password) }
     it { should respond_to(:password_confirmation) }
+    it { should respond_to(:remember_token) }
+    it { should respond_to(:authenticate) }
 
     it { should be_valid }
+
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+  end
 
   describe "when name is not present" do
     before { @user.name = " " }
     it { should_not be_valid }
   end
+
 
   describe "when email is not present" do
     before { @user.email = " " }
@@ -81,188 +91,58 @@ describe User do
     end
 
     it { should_not be_valid }
+  end  
+
+  describe "when password is not present" do
+    before { @user.password = @user.password_confirmation = " " }
+    it { should_not be_valid }
   end
+   
+  describe "when password doesn't match confirmation" do
+    before { @user.password_confirmation = "mismatch" }
+    it { should_not be_valid }
+  end  
 
-describe "when password is not present" do
-  before { @user.password = @user.password_confirmation = " " }
-  it { should_not be_valid }
-end
+  describe "when password confirmation is nil" do
+    before { @user.password_confirmation = nil }
+    it { should_not be_valid }
+  end  
 
-describe "when password doesn't match confirmation" do
-  before { @user.password_confirmation = "mismatch" }
-  it { should_not be_valid }
-end
+  describe "with a password that's too short" do
+    before { @user.password = @user.password_confirmation = "a" * 5 }
+    it { should be_invalid }
+  end  
 
-describe "when password confirmation is nil" do
-  before { @user.password_confirmation = nil }
-  it { should_not be_valid }
-end
+  describe "return value of authenticate method" do
+    before { @user.save }
+    let(:found_user) { User.find_by_email(@user.email) }  
 
-describe "with a password that's too short" do
-  before { @user.password = @user.password_confirmation = "a" * 5 }
-  it { should be_invalid }
-end
+    describe "with valid password" do
+      it { should == found_user.authenticate(@user.password) }
+    end  
 
-describe "return value of authenticate method" do
-  before { @user.save }
-  let(:found_user) { User.find_by_email(@user.email) }
+    describe "with invalid password" do
+      let(:user_for_invalid_password) { found_user.authenticate("invalid") }  
 
-  describe "with valid password" do
-    it { should == found_user.authenticate(@user.password) }
-  end
-
-  describe "with invalid password" do
-    let(:user_for_invalid_password) { found_user.authenticate("invalid") }
-
-    it { should_not == user_for_invalid_password }
-    specify { user_for_invalid_password.should be_false }
-  end
-end
-
-describe "email address with mixed case" do
-    let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
-
-    it "should be saved as all lower-case" do
-      @user.email = mixed_case_email
-      @user.save
-      @user.reload.email.should == mixed_case_email.downcase
+      it { should_not == user_for_invalid_password }
+      specify { user_for_invalid_password.should be_false }
     end
+  end
+
+  describe "email address with mixed case" do
+      let(:mixed_case_email) { "Foo@ExAMPle.CoM" }  
+
+      it "should be saved as all lower-case" do
+        @user.email = mixed_case_email
+        @user.save
+        @user.reload.email.should == mixed_case_email.downcase
+      end
+  end
+  
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+  end
+
+
 end
-  
-
-end
-#   it "should create a new instance given valid attributes" do
-#     User.create!(@attr)
-#   end
-
-#   it "should require a name" do
-#      no_name_user = User.new(@attr.merge(:name => ""))
-#      no_name_user.should_not be_valid
-#  end
- 
-# it "should require an email address" do
-#     no_email_user = User.new(@attr.merge(:email => ""))
-#     no_email_user.should_not be_valid
-#   end
-
-# it "should reject names that are too long" do
-#     long_name = "a" * 51
-#     long_name_user = User.new(@attr.merge(:name => long_name))
-#     long_name_user.should_not be_valid
-#   end
-
-#   it "should accept valid email addresses" do
-#     addresses = %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp]
-#     addresses.each do |address|
-#       valid_email_user = User.new(@attr.merge(:email => address))
-#       valid_email_user.should be_valid
-#     end
-#   end
-
-#   it "should reject invalid email addresses" do
-#     addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
-#     addresses.each do |address|
-#       invalid_email_user = User.new(@attr.merge(:email => address))
-#       invalid_email_user.should_not be_valid
-#     end
-#   end
-
-# it "should reject duplicate email addresses identical up to case" do
-#     # Put a user with given email address into the database.
-#     upcased_email = @attr[:email].upcase
-#     User.create!(@attr.merge(:email => upcased_email))
-#     user_with_duplicate_email = User.new(@attr)
-#     user_with_duplicate_email.should_not be_valid
-#   end
- 
-#  describe "password validations" do 
-    
-#     it "should require a  password" do 
-#       User.new(@attr.merge(:password => "", :password_confirmation => "")).
-#         should_not be_valid
-#     end
-
-#     it "should require a matching password confirmation" do
-#       User.new(@attr.merge(:password_confirmation => "invalid")).
-#         should_not be_valid
-#     end
-
-#     it "should reject short passwords" do
-#       short = "a" * 5
-#       hash = @attr.merge(:password => short, :password_confirmation => short)
-#       User.new(hash).should_not be_valid
-#     end
-
-#     it "should reject long passwords" do
-#       long = "a" * 41
-#       hash = @attr.merge(:password => long, :password_confirmation => long)
-#       User.new(hash).should_not be_valid
-#     end
-#   end
-
-#   describe "password encryption" do
-
-#     before(:each) do
-#       @user = User.create!(@attr)
-#     end
-
-#     it "should have an encrypted password attribute" do
-#       @user.should respond_to(:encrypted_password)
-#     end
-#    it "should set the encrypted password" do
-#       @user.encrypted_password.should_not be_blank
-#     end
-  
-#     describe "has_password? method" do
-
-#       it "should be true if the passwords match" do
-#         @user.has_password?(@attr[:password]).should be_true
-#       end
-
-#       it "should be false if the passwords don't match" do
-#         @user.has_password?("invalid").should be_false
-#       end
-#     end
-
-#   describe "authenticate method" do
-
-#       it "should return nil on email/password mismatch" do
-#         wrong_password_user = User.authenticate(@attr[:email], "wrongpass")
-#         wrong_password_user.should be_nil
-#       end
-
-#       it "should return nil for an email address with no user" do
-#         nonexistent_user = User.authenticate("bar@foo.com", @attr[:password])
-#         nonexistent_user.should be_nil
-#       end
-
-#       it "should return the user on email/password match" do
-#         matching_user = User.authenticate(@attr[:email], @attr[:password])
-#         matching_user.should == @user
-#       end
-#    end
-  
-#  end
-
-#  describe "admin attribute" do
-
-#     before(:each) do
-#       @user = User.create!(@attr)
-#     end
-
-#     it "should respond to admin" do
-#       @user.should respond_to(:admin)
-#     end
-
-#     it "should not be an admin by default" do
-#       @user.should_not be_admin
-#     end
-
-#     it "should be convertible to an admin" do
-#       @user.toggle!(:admin)
-#       @user.should be_admin
-#     end
-#   end
-
-
-# end

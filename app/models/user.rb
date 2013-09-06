@@ -10,6 +10,7 @@
 #  salt            :string(255)
 #  admin           :boolean
 #  password_digest :string(255)
+#  remember_token  :string(255)
 #
 
 
@@ -20,6 +21,7 @@ class User < ActiveRecord::Base
     has_secure_password
 
     before_save { email.downcase! }
+    before_save :create_remember_token
  
   
     validates :name,  presence: true,
@@ -36,7 +38,11 @@ class User < ActiveRecord::Base
     validates :password_confirmation, presence: true          
 
 
+  private
 
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 
 # before_save :encrypt_password
 

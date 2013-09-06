@@ -1,19 +1,19 @@
 h1 Sign in
 
-= form_for(:session, :url => sessions_path) do |f| 
-  div class="field"
-    = f.label :email
-    p 
-    = f.text_field :email 
-    p
-  div class="field"
-    = f.label :password
-    p  
-    = f.password_field :password
-    p
-  div class="actions"
-    = f.submit "Sign in"
-  end 
-
-     p  New user?
-= link_to "Sign up now!", signup_path 
+.row
+ div class="span6 offset3"
+      = form_for(:session, :url => sessions_path) do |f| 
+        = f.label :email
+        p 
+        = f.text_field :email 
+        p
+        = f.label :password
+        p  
+        = f.password_field :password
+        p align="center"
+         = f.submit "Sign in", class: "btn btn-large btn-primary" 
+      end 
+       p align="center" 
+        | 
+          New user? 
+        = link_to "Sign up now!", signup_path 
