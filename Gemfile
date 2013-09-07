@@ -54,7 +54,8 @@ group :test do
  gem 'libnotify', '0.5.9'
  gem 'factory_girl_rails', '4.1.0'
  gem 'autotest-notification'
- gem 'database_cleaner'
+ gem 'cucumber-rails', '1.2.1', :require => false
+ gem 'database_cleaner', '0.7.0'
 end
 
 
