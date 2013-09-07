@@ -2,16 +2,16 @@ h1 Sign in
 
 .row
  div class="span6 offset3"
-      = form_for(:session, :url => sessions_path) do |f| 
-        = f.label :email
+      = form_tag sessions_path, methods: "post"  do  
+        = label_tag 'Email'
         p 
-        = f.text_field :email 
+        = text_field_tag :email, params[:email] 
         p
-        = f.label :password
+        = label_tag 'Password'
         p  
-        = f.password_field :password
+        = password_field_tag :password, params[:password]
         p align="center"
-         = f.submit "Sign in", class: "btn btn-large btn-primary" 
+         = submit_tag 'Sign in', class: "btn btn-large btn-primary" 
       end 
        p align="center" 
         | 
