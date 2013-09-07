@@ -28,7 +28,11 @@ describe "Authentication" do
       describe "after visiting another page" do
         it { response.body.should have_link('Главная', :href => root_path) }
         before { click_link "Главная" }
+<<<<<<< HEAD
         #it { should_not have_selector('div.alert.alert-error') }
+=======
+        it { should_not have_selector('div.alert.alert-error') }
+>>>>>>> sign-in-out
       end
 
     end
