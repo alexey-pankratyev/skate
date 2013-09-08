@@ -9,10 +9,7 @@ describe "Authentication" do
 
   describe "signin page" do
     before { visit signin_path }  
-
-    it { should have_selector('h1',    content: 'Sign in') }
-    it { should have_selector('title', content: 'Sign in') }
-
+    it { should have_content_h1_title('Sign in') }
   end
 
   describe "signin" do
@@ -22,9 +19,8 @@ describe "Authentication" do
     describe "with invalid information" do
       before { click_button "Sign in" }
 
-      it { should have_selector('title', content: 'Sign in') }
-      it { should have_selector('div.alert.alert-error', content: 'Invalid') }
-      #it { should have_error_message 'Invalid' }
+      it { should have_content_h1_title('Sign in') }
+      it { response.body.should have_error_message('Invalid') }
 
       describe "after visiting another page" do
         it { response.body.should have_link('Главная', :href => root_path) }
@@ -35,13 +31,12 @@ describe "Authentication" do
 
     end
   
-
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
       
       before { valid_signin(user) }
       
-      it { should have_selector('title', content: user.name) }
+      it { should have_content_h1_title(user.name) }
       it { response.body.should have_link('Профиль', href: user_path(user)) }
       it { response.body.should have_link('Выйти', href: signout_path) }
       

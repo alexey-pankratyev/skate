@@ -12,12 +12,21 @@ end
   fill_in "Email",    with: user.email
   fill_in "Password", with: user.password
   click_button "Sign in"
-end
+ end
+
+ 
 
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
     page.should have_selector('div.alert.alert-error', content: message) 
   end
+end
+
+RSpec::Matchers.define :have_content_h1_title do |message|
+match do |page|
+    page.should have_selector('h1', content: message) 
+    page.should have_selector('title', content: message) 
+ end
 end
 
 class ActionView::TestCase::TestController
