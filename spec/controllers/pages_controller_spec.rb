@@ -1,66 +1,66 @@
-#!/bin/env ruby
-# encoding: utf-8
-require 'spec_helper'
-describe PagesController do
-  render_views
+# #!/bin/env ruby
+# # encoding: utf-8
+# require 'spec_helper'
+# describe PagesController do
+#   render_views
     
-  before(:each) do
-    @base_title = "Mynda"
-  end
+#   before(:each) do
+#     @base_title = "Mynda"
+#   end
 
-  describe "GET 'home'" do
+#   describe "GET 'home'" do
     
-    it "should have the content 'mynda'" do
-      get 'home'
-    # response.should be_redirect  
-      response.body.should include("Мянда затерянный край вдали городов !!!") 
-    end
+#     it "should have the content 'mynda'" do
+#       get 'home'
+#     # response.should be_redirect  
+#       response.body.should include("Мянда затерянный край вдали городов !!!") 
+#     end
 
-    it "returns http success" do
-      get 'home'
-      response.should be_success
-    end
+#     it "returns http success" do
+#       get 'home'
+#       response.should be_success
+#     end
 
-it "should have the right title" do
-     get 'home'
-     response.should have_selector("title",:content => @base_title)
-   end
-  end
+# it "should have the right title" do
+#      get 'home'
+#      response.should have_selector("title",:content => @base_title)
+#    end
+#   end
 
-  describe "GET 'contact'" do
-    it "returns http success" do
-      get 'contact'
-      response.should be_success
-    end
+#   describe "GET 'contact'" do
+#     it "returns http success" do
+#       get 'contact'
+#       response.should be_success
+#     end
 
- it "should have the right title" do
-      get 'contact'
-      response.should have_selector("title",:content => @base_title+"|Contact")
-   end
-  end
+#  it "should have the right title" do
+#       get 'contact'
+#       response.should have_selector("title",:content => @base_title+"|Contact")
+#    end
+#   end
 
- describe "GET 'about'" do
-    it "should be successful" do
-      get 'about'
-      response.should be_success
-    end
+#  describe "GET 'about'" do
+#     it "should be successful" do
+#       get 'about'
+#       response.should be_success
+#     end
 
-it "should have the right title" do
-      get 'about'
-      response.should have_selector("title",:content => @base_title+"|About")
-   end
-  end
+# it "should have the right title" do
+#       get 'about'
+#       response.should have_selector("title",:content => @base_title+"|About")
+#    end
+#   end
 
-describe "GET 'help'" do
-    it "should be successful" do
-      get 'help'
-      response.should be_success
-    end
+# describe "GET 'help'" do
+#     it "should be successful" do
+#       get 'help'
+#       response.should be_success
+#     end
 
-it "should have the right title" do
-      get 'help'
-      response.should have_selector("title",:content => @base_title+"|Help")
-   end
-  end
+# it "should have the right title" do
+#       get 'help'
+#       response.should have_selector("title",:content => @base_title+"|Help")
+#    end
+#   end
 
-end
+# end

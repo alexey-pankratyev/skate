@@ -14688,3 +14688,323 @@ REQUESTING PAGE: GET http://www.example.com/users/1998?locale=ru with {} and HTT
 REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
 REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
 REQUESTING PAGE: GET http://www.example.com/users/1999?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2008?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2009?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2010?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2011?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: DELETE /signout?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/2011?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/signout?locale=ru"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://www.example.com/about?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /help with {} and HTTP headers {}
+REQUESTING PAGE: GET /help with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {}
+REQUESTING PAGE: GET /contact with {} and HTTP headers {}
+REQUESTING PAGE: GET /contact with {} and HTTP headers {}
+REQUESTING PAGE: GET /email with {} and HTTP headers {}
+REQUESTING PAGE: GET /email with {} and HTTP headers {}
+REQUESTING PAGE: GET reviews with {} and HTTP headers {}
+REQUESTING PAGE: GET reviews with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /users/2012?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2013?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2014?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2015?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2016?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2017?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2026?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2027?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2028?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2029?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: DELETE /signout?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/2029?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/signout?locale=ru"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://www.example.com/about?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /help with {} and HTTP headers {}
+REQUESTING PAGE: GET /help with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {}
+REQUESTING PAGE: GET /contact with {} and HTTP headers {}
+REQUESTING PAGE: GET /contact with {} and HTTP headers {}
+REQUESTING PAGE: GET /email with {} and HTTP headers {}
+REQUESTING PAGE: GET /email with {} and HTTP headers {}
+REQUESTING PAGE: GET reviews with {} and HTTP headers {}
+REQUESTING PAGE: GET reviews with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /users/2030?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2031?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2032?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2033?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2034?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2035?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2044?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2045?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2046?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2047?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: DELETE /signout?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/2047?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/signout?locale=ru"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://www.example.com/about?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /help with {} and HTTP headers {}
+REQUESTING PAGE: GET /help with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {}
+REQUESTING PAGE: GET /contact with {} and HTTP headers {}
+REQUESTING PAGE: GET /contact with {} and HTTP headers {}
+REQUESTING PAGE: GET /email with {} and HTTP headers {}
+REQUESTING PAGE: GET /email with {} and HTTP headers {}
+REQUESTING PAGE: GET reviews with {} and HTTP headers {}
+REQUESTING PAGE: GET reviews with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /users/2048?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2049?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2050?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2051?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2052?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2053?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2062?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2063?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2064?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2065?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: DELETE /signout?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/2065?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/signout?locale=ru"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://www.example.com/about?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /help with {} and HTTP headers {}
+REQUESTING PAGE: GET /help with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {}
+REQUESTING PAGE: GET /contact with {} and HTTP headers {}
+REQUESTING PAGE: GET /contact with {} and HTTP headers {}
+REQUESTING PAGE: GET /email with {} and HTTP headers {}
+REQUESTING PAGE: GET /email with {} and HTTP headers {}
+REQUESTING PAGE: GET reviews with {} and HTTP headers {}
+REQUESTING PAGE: GET reviews with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /users/2066?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2067?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2068?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2069?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2070?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2071?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"", "password"=>"", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET /?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2080?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2081?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2082?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: GET /signin?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /sessions?locale=ru with {"utf8"=>"✓", "email"=>"michael@example.com", "password"=>"foobar", "commit"=>"Sign in"} and HTTP headers {"HTTP_REFERER"=>"/signin?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2083?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/sessions?locale=ru"}
+REQUESTING PAGE: DELETE /signout?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/2083?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/signout?locale=ru"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET http://www.example.com/about?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /help with {} and HTTP headers {}
+REQUESTING PAGE: GET /help with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {}
+REQUESTING PAGE: GET /contact with {} and HTTP headers {}
+REQUESTING PAGE: GET /contact with {} and HTTP headers {}
+REQUESTING PAGE: GET /email with {} and HTTP headers {}
+REQUESTING PAGE: GET /email with {} and HTTP headers {}
+REQUESTING PAGE: GET reviews with {} and HTTP headers {}
+REQUESTING PAGE: GET reviews with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /users/2084?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"", "email"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2085?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2086?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2087?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2088?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
+REQUESTING PAGE: GET /signup?locale=ru with {} and HTTP headers {}
+REQUESTING PAGE: POST /users?locale=ru with {"utf8"=>"✓", "user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"foobar", "password_confirmation"=>"foobar"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup?locale=ru"}
+REQUESTING PAGE: GET http://www.example.com/users/2089?locale=ru with {} and HTTP headers {"HTTP_REFERER"=>"/users?locale=ru"}
