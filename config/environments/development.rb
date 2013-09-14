@@ -34,7 +34,7 @@ Myndozero::Application.configure do
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Do not compress assets
-  config.assets.compress = true
+  config.assets.compress = false
   
   # Expands the lines which load the assets
   config.assets.debug = true
@@ -45,8 +45,8 @@ Myndozero::Application.configure do
   #config.assets.compile = true
   config.action_controller.perform_caching = true
 
-  config.after_initialize do |app|
-    app.assets.logger = Logger.new('/dev/null')
-  end
-  config.reload_plugins = true
+  # config.after_initialize do |app|
+  #   app.assets.logger = Logger.new('/dev/null')
+  # end
+  # config.reload_plugins = true
 end

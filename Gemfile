@@ -11,25 +11,20 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
 # gem 'typus', :git => 'git://github.com/fesplugas/typus.git'
-gem 'bootstrap-sass', '2.1'
+gem 'bootstrap-sass' , '2.1'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'faker'
-gem 'sass-rails',   '~> 3.2.3'
-gem 'coffee-rails', '~> 3.2.1'
-gem 'uglifier' #, '>= 1.0.3'
 gem 'slim-rails'
 gem 'compass-rails'
 gem 'russian', '~> 0.6.0'
 
-#platforms :ruby do
-#  gem 'pg'
-#end
-
-#platforms :jruby do
-  #gem 'trinidadiii'
-  #gem 'jruby-openssl'
- #end
-
+# Гемы, используемые только для ресурсов и не требуемые
+# в среде production по умолчанию.
+group :assets do
+  gem 'sass-rails',   "~> 3.2.3"
+  gem 'coffee-rails', "~> 3.2.1"
+  gem 'uglifier'
+end
 
 group :production do
  gem 'pg'
@@ -38,7 +33,6 @@ end
 group :development, :test  do
  gem 'rspec-rails'
  gem 'guard-spork'
-
  gem 'spork'
  gem 'guard-rspec', '1.2.1'
  gem 'webrat'

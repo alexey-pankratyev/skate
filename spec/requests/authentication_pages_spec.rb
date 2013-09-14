@@ -43,6 +43,8 @@ describe "Authentication" do
       describe "followed by signout" do
          before { click_link "Выйти", :method => :delete }
          it { response.body.should have_link('Войти', href: signin_path) }
+         it { response.body.should_not have_link('Профиль', href: user_path(user)) }
+         it { response.body.should_not have_link('Выйти', href: signout_path) }
       end
       
     end

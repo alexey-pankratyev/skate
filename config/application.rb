@@ -69,9 +69,13 @@ module Myndozero
     config.assets.enabled = true
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    config.assets.initialize_on_precompile = true
-    config.serve_static_assets = true
-    config.assets.precompile += %w[application.css application.js *.css *.scss *.png *.jpg *.jpeg *.gif] 
+    config.assets.initialize_on_precompile = false
+    config.serve_static_assets = false
+    # Измените путь, откуда отдаются ресурсы
+    config.assets.prefix = "/assets"
+    # config.assets.precompile += %w[application.css application.js *.css *.scss *.png *.jpg *.jpeg *.gif] 
+     # config.assets.precompile += %w( *.css *.js )
+    # config.assets.precompile << /(^[^_\/]|\/[^_])[^\/]*$/
     config.assets.compile = true
     
   end
