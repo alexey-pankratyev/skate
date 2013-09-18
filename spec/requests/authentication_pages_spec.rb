@@ -37,11 +37,8 @@ describe "Authentication" do
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
       
-      before do
-        visit signin_path
-        fill_in "Email",    with: user.email.upcase
-        fill_in "Password", with: user.password
-        click_button "Sign in"
+      before do        
+        sign_in user
       end 
       
       it { should have_selector('title', content: user.name) }
@@ -50,7 +47,10 @@ describe "Authentication" do
       it { response.body.should have_link('Выйти', href: signout_path) }
       
       describe "followed by signout" do
-         before { click_link "Выйти", :method => :delete }
+
+       before do 
+        click_link "Выйти", :method => :delete 
+       end
          it { response.body.should have_link('Войти', href: signin_path) }
          it { response.body.should_not have_link('Настройка', href: edit_user_path(user)) }
          it { response.body.should_not have_link('Профиль', href: user_path(user)) }
@@ -58,6 +58,59 @@ describe "Authentication" do
 
       end
       
+    end
+
+  end
+
+  describe "authorization" do
+
+    describe "for non-signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+
+      describe "when attempting to visit a protected page" do
+        before do
+          visit edit_user_path(user)
+          fill_in "Email",    with: user.email
+          fill_in "Password", with: user.password
+          click_button "Sign in"
+        end
+
+        describe "after signing in" do
+
+          it "should render the desired protected page" do
+             should have_selector('h1', content: "Update your profile") 
+          end
+        end
+      end
+
+      describe "in the Users controller" do
+
+        describe "visiting the edit page" do
+          before { visit edit_user_path(user) }
+          it { should have_selector('title', content: 'Sign in') }
+        end
+
+        describe "submitting to the update action" do
+          before { put user_path(user) }
+          specify { response.body.should redirect_to(signin_path) }
+        end
+      end
+    end
+
+    describe "as wrong user" do
+      let(:user) { FactoryGirl.create(:user) }
+      let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
+      before { sign_in user }
+
+      describe "visiting Users#edit page" do
+        before { visit edit_user_path(wrong_user) }
+        it { should_not have_selector('title', content: full_title(user.name)) }
+      end
+
+      describe "submitting a PUT request to the Users#update action" do
+        before { put user_path(wrong_user) }
+        specify { response.should redirect_to(root_path) }
+      end
     end
 
   end

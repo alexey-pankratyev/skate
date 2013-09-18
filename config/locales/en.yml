@@ -5,7 +5,6 @@ ru:
   activerecord:
     attributes:
       user:
-        confirmation: "Подтверждение"
         password_confirmation: "Подтверждение пароля"
         name: "Имя"
         error: "ошибка"
@@ -13,5 +12,5 @@ ru:
         email: "Мыло"
         password: "Пароль"
         password_digest: "Пароль"
-        Sign up: "регистрация"
+        Sign_up: "регистрация"
         
