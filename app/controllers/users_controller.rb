@@ -2,12 +2,12 @@
 # encoding: utf-8
  class UsersController < ApplicationController
   
- before_filter :signed_in_user, only: [:edit, :update]
+ before_filter :signed_in_user, only: [:index, :edit, :update]
  before_filter :correct_user,   only: [:edit, :update]
   
    def index 
       @title = "All users"
-      @users = User.paginate(:page => params[:page])
+      @users = User.paginate(page: params[:page])
    end
 
    def show

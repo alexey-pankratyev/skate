@@ -45,6 +45,7 @@ describe "Authentication" do
       it { response.body.should have_link('Настройка', href: edit_user_path(user)) }
       it { response.body.should have_link('Профиль', href: user_path(user)) }
       it { response.body.should have_link('Выйти', href: signout_path) }
+      it { response.body.should have_link('Пользователи', href: users_path) }
       
       describe "followed by signout" do
 
@@ -93,6 +94,11 @@ describe "Authentication" do
         describe "submitting to the update action" do
           before { put user_path(user) }
           specify { response.body.should redirect_to(signin_path) }
+        end
+
+        describe "visiting the user index" do
+          before { visit users_path }
+          it { should have_selector('title', content: 'Sign in') }
         end
       end
     end

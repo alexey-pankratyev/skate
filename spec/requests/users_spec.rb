@@ -7,6 +7,35 @@ describe "Users" do
 
  subject { response }
 
+  describe "index" do
+
+    let(:user) { FactoryGirl.create(:user) }
+
+    before(:each) do
+      sign_in user
+      visit users_path
+    end
+
+    it { should have_selector('title', content: 'All users') }
+    it { should have_selector('h1',    content: 'All users') }
+
+    describe "pagination" do
+
+      before(:all) { 30.times { FactoryGirl.create(:user) } }
+      after(:all)  { User.delete_all }
+
+      it { should have_selector('div.pagination') }
+
+      it "should list each user" do
+        User.paginate(page: 1).each do |user|
+          response.body.should have_selector('li', content: user.name)
+        end
+      end
+    end
+  end
+
+
+
   describe "signup page" do
     before { visit signup_path } 
     it { should have_content_h1_title('Sign up') }
@@ -107,6 +136,5 @@ describe "Users" do
     end
 
   end
-  
-
+ 
 end
