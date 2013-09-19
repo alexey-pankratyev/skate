@@ -2,8 +2,9 @@
 # encoding: utf-8
  class UsersController < ApplicationController
   
- before_filter :signed_in_user, only: [:index, :edit, :update]
+ before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
  before_filter :correct_user,   only: [:edit, :update]
+ before_filter :admin_user,     only: :destroy
   
    def index 
       @title = "All users"
@@ -20,7 +21,7 @@
       @title = "Sign up"
    end
 
-    def create 
+  def create 
      @user = User.new(params[:user]) 
     if @user.save
      sign_in @user
@@ -32,12 +33,12 @@
      @user.password_confirmation.clear
      render 'new'
      end
-   end
+  end
 
-   def edit
+  def edit
       @user = User.find(params[:id])
       @title = @user.name
-   end
+  end
 
    def update
       @user = User.find(params[:id])
@@ -52,11 +53,11 @@
 
 
  
- #  def destroy
- #    User.find(params[:id]).destroy
- #    flash[:success] = "User destroyed."
- #    redirect_to users_path
- #  end
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User destroyed."
+    redirect_to users_path
+  end
 
  
  private
@@ -71,9 +72,9 @@
       redirect_to(root_path) unless current_user?(@user)
     end
 
- #    def admin_user
- #      redirect_to(root_path) unless current_user.admin?
- #    end
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
   
 end
 
