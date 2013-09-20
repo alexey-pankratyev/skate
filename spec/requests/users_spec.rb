@@ -98,7 +98,7 @@ describe "Users" do
         fill_in "Имя",          with: "Example User"
         fill_in "Мыло",         with: "user@example.com"
         fill_in "Пароль",       with: "foobar"
-        fill_in "Confirmation", with: "foobar"
+        fill_in "Confirm Password", with: "foobar"
       end
 
       it "should create a user" do
