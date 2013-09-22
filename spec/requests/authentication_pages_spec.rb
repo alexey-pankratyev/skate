@@ -81,7 +81,23 @@ describe "Authentication" do
           it "should render the desired protected page" do
              should have_selector('h1', content: "Update your profile") 
           end
+
+          describe "when signing in again" do
+            before do
+              delete signout_path
+              visit signin_path
+              fill_in "Email",    with: user.email
+              fill_in "Password", with: user.password
+              click_button "Sign in"
+            end
+
+            it "should render the default (profile) page" do
+              response.should have_selector('title', content: user.name)
+            end
+          end
+        
         end
+
       end
 
       describe "in the Users controller" do
@@ -128,6 +144,18 @@ describe "Authentication" do
       describe "submitting a DELETE request to the Users#destroy action" do
         before { delete user_path(user) }
         specify { response.should redirect_to(root_path) }
+      end
+    end
+
+    describe "as admin user" do
+      let(:user) { FactoryGirl.create(:user) }
+      let(:admin) { FactoryGirl.create(:admin) }
+
+      before { sign_in admin }
+
+      describe "submitting a DELETE request to the Users#destroy action" do
+        before { delete user_path(admin) } 
+        specify { response.should redirect_to(users_path) }
       end
     end
     
