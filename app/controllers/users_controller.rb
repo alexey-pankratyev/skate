@@ -2,7 +2,7 @@
 # encoding: utf-8
  class UsersController < ApplicationController
   
- before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
+ before_filter :signed_in_user, only: [:index, :edit, :update, :destroy ]
  before_filter :correct_user,   only: [:edit, :update]
  before_filter :admin_user,     only: :destroy
  
@@ -13,6 +13,7 @@
 
    def show
       @user = User.find(params[:id])
+      @microposts = @user.microposts.paginate(page: params[:page])
       @title = @user.name
    end
   
@@ -67,11 +68,6 @@
 
  
  private
-
-    def signed_in_user
-      store_location
-      redirect_to signin_url, notice: "Please sign in!" unless signed_in?
-    end
     
     def correct_user
       @user = User.find(params[:id])
@@ -85,3 +81,4 @@
    
 end
 
+ 
