@@ -36,7 +36,12 @@ class User < ActiveRecord::Base
     validates :password, presence: true,
              length: { within: 6..40 }
 
-    validates :password_confirmation, presence: true          
+    validates :password_confirmation, presence: true    
+
+  def feed
+    # Это предварительное решение. См. полную реализацию в "Following users".
+    Micropost.where("user_id = ?", id)
+  end      
 
 
   private

@@ -6,12 +6,13 @@ Myndozero::Application.routes.draw do
   
   
   
-  resources :microposts, only: [:create, :destroy]
+  
   
 
   root :to => 'pages#home'
-  
+  resources :microposts, only: [:create, :destroy]
   resources :pages
+
   
     # match '/home',  :to => 'pages#home'
     match '/contact', :to => 'pages#contact'
