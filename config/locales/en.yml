@@ -13,4 +13,8 @@ ru:
         password: "Пароль"
         password_digest: "Пароль"
         Sign_up: "регистрация"
+      micropost:
+        micropost: "микропост"
+        microposts: "микропосты"
+        Post: "Пост"
         

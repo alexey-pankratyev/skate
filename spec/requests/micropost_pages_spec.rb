@@ -1,4 +1,5 @@
 require 'spec_helper'
+# encoding: utf-8
 
 describe "Micropost pages" do
 
