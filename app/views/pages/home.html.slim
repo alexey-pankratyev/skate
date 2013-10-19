@@ -1,20 +1,8 @@
 - if signed_in? 
-  .row
-    aside class="span4"
-     section
-      = render 'shared/user_info' 
-     section
-      = render 'shared/micropost_form' 
-    .span8
-      h3 Микропосты 
-      = render 'shared/feed'   
+  = render 'shared/home_entered'   
 - else 
-  div class="center hero-unit"
-   p 
-    h4  Мянда затерянный край вдали городов !!!
-   a  href="http://big-fish.ru/" Пример для саита! 
-   p
-   = link_to "Зарегистрироваться сейчас!", signup_path, :class => "btn btn-large btn-primary" 
+   = render 'shared/home_not_included'
+  
 
       
     

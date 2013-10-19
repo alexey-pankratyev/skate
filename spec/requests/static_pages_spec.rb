@@ -24,7 +24,7 @@ describe "Static pages" do
   end
  
   describe "Home page" do
-     before { visit '/' }
+     before { visit root_path }
        let(:heading)    { 'Мянда затерянный край вдали городов !!!' }
        let(:page_title) { '' }
        it_should_behave_like "all static pages"
@@ -32,18 +32,41 @@ describe "Static pages" do
 
     describe "for signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
+      let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
       before do
-        FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
-        FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
+        # FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
+        # FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
+        content = Faker::Lorem.sentence(5)
+        33.times { FactoryGirl.create(:micropost, user: user, content: content) }         
         sign_in user
         visit root_path
       end
 
       it "should render the user's feed" do
-        user.feed.each do |item|
+        user.feed[1..28].each do |item|
           response.body.should have_selector("li##{item.id}", content: item.content)
+          response.body.should have_link('delete') 
         end
       end
+
+      it "should have micropost count and pluralize" do
+        response.body.should have_content('33 microposts')
+      end
+
+      it "should paginate after 31" do
+        response.body.should have_selector('div.pagination')
+      end
+
+      describe "check link 'delete' user" do
+        before { sign_in  wrong_user}
+        before { get user_path(user) }
+         it "should_not the user's links 'delete'" do
+          user.feed[1..28].each do |item|
+          response.body.should_not have_link('delete') 
+          end
+         end
+      end
+
     end
   end
   

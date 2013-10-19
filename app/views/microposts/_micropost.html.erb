@@ -4,8 +4,6 @@
     Отправленно <%= time_ago_in_words(micropost.created_at) %> ago.
   </span>
    <% if current_user?(micropost.user) %>
-    <%= link_to "delete", micropost, method: :delete,
-                                     data: { confirm: "Ты уверен?" },
-                                     title: micropost.content %>
-  <% end %>
+    <%= render  partial: 'shared/delete_link', locals: { object: micropost } %>
+   <% end %>
 </li>
