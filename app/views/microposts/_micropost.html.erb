@@ -1,9 +1,3 @@
 <li>
-  <span class="content"><%= micropost.content %></span>
-  <span class="timestamp">
-    Отправленно <%= time_ago_in_words(micropost.created_at) %> ago.
-  </span>
-   <% if current_user?(micropost.user) %>
-    <%= render  partial: 'shared/delete_link', locals: { object: micropost } %>
-   <% end %>
+   <%= render  partial: 'shared/delete_link', locals: { object: micropost } %>
 </li>

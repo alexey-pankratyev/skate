@@ -1,4 +1,10 @@
- <%= link_to "delete", object, method: :delete,
+ <span class="content"><%= wrap(object.content) %></span>
+  <span class="timestamp">
+    Отправленно <%= time_ago_in_words(object.created_at) %> ago.
+  </span>
+ <% if current_user?(object.user) %>
+   <%= link_to "delete", object, method: :delete,
                                      data: { confirm: "Ты уверен?" },
                                      title: object.content %>
+ <% end %>
   
