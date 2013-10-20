@@ -76,7 +76,7 @@ module Myndozero
     # config.assets.precompile += %w[application.css application.js *.css *.scss *.png *.jpg *.jpeg *.gif] 
      # config.assets.precompile += %w( *.css *.js )
     # config.assets.precompile << /(^[^_\/]|\/[^_])[^\/]*$/
-    config.assets.compile = false
+    config.assets.compile = true
     
   end
 end
