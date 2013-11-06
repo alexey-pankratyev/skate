@@ -56,8 +56,8 @@ describe "Static pages" do
           visit root_path
         end
 
-        it { response.body.should have_link("0 following", href: following_user_path(user)) }
-        it { response.body.should have_link("1 followers", href: followers_user_path(user)) }
+        it { response.body.should have_link("0 Читаемых", href: following_user_path(user)) }
+        it { response.body.should have_link("1 Читающих", href: followers_user_path(user)) }
       end
 
       it "should have micropost count and pluralize" do
