@@ -11,6 +11,7 @@ Myndozero::Application.routes.draw do
 
   root :to => 'pages#home'
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   resources :pages
 
   
@@ -24,6 +25,12 @@ Myndozero::Application.routes.draw do
   resources :users
     
     match '/signup', :to => 'users#new'
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   
   resources :sessions, :only => [:new, :create, :destroy]
   
