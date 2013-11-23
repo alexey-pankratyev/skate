@@ -17,13 +17,14 @@ require 'spec_helper'
 
 describe User do
   
-    before { @user = User.new(name: "Example User", email: "user@example.com", 
+    before { @user = User.new(name: "Example User", email: "user@example.com", nickname: "Test",
               password: "foobar", password_confirmation: "foobar") }
     subject { @user }
 
 
     it { should respond_to(:name) }
     it { should respond_to(:email) }
+    it { should respond_to(:nickname) }
     it { should respond_to(:password_digest) }
     it { should respond_to(:password) }
     it { should respond_to(:password_confirmation) }
@@ -75,6 +76,10 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when nickname is not present" do
+    before { @user.nickname = " " }
+    it { should_not be_valid }
+  end
 
   describe "when email is not present" do
     before { @user.email = " " }
@@ -85,6 +90,29 @@ describe User do
     before { @user.name = "a" * 51 }
     it { should_not be_valid }
   end
+
+  describe "when nickname is too long" do
+    before { @user.nickname = "a" * 16 }
+    it { should_not be_valid }
+  end
+
+  describe "when nickname format is invalid" do
+    it "should be invalid" do
+      name = %w["u name", "u-name", "uname_", "007uname", "u*name", "u)name"]
+      name.each do |invalid_address|
+        @user.nickname = invalid_address
+        @user.should_not be_valid
+      end
+    end
+  end
+
+   it "should accept valid unickname" do
+     nickname = %w[uname007 uname u_name u_name_007 u_007_name]
+     nickname.each do |valid_nickname|
+       @user.nickname = valid_nickname
+       @user.should be_valid
+     end
+   end
 
   describe "when email format is invalid" do
     it "should be invalid" do
