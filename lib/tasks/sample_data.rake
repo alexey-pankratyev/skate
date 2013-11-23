@@ -10,6 +10,7 @@ end
 def make_users 
     Rake::Task['db:reset'].invoke
     admin = User.create!(:name => "Alexey",
+                 :nickname => "rezter",
                  :email => "alexey.pankratev@gmail.com",
                  :password => "foobar",
                  :password_confirmation => "foobar")
@@ -18,8 +19,10 @@ def make_users
     99.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@railstutorial.org"
+      nickname = "example#{n+1}"
       password  = "password"
       User.create!(name: name,
+                   nickname: nickname,
                    email: email,
                    password: password,
                    password_confirmation: password)

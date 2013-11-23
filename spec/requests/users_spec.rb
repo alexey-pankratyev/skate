@@ -97,6 +97,7 @@ describe "Users" do
 
       before do
         fill_in "Имя",          with: "Example User"
+        fill_in "Ник",          with: "Example"
         fill_in "Мыло",         with: "user@example.com"
         fill_in "Пароль",       with: "foobar"
         fill_in "Confirm Password", with: "foobar"
@@ -141,8 +142,10 @@ describe "Users" do
     describe "with valid information" do
       let(:new_name)  { "New Name" }
       let(:new_email) { "new@example.com" }
+      let(:new_nickname) { "Test" }
       before do
         fill_in "Имя",             with: new_name
+        fill_in "Ник",             with: new_nickname
         fill_in "Мыло",            with: new_email
         fill_in "Пароль",          with: user.password
         fill_in "Confirm Password", with: user.password
