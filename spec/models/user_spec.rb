@@ -106,13 +106,33 @@ describe User do
     end
   end
 
-   it "should accept valid unickname" do
+   it "should accept valid nickname" do
      nickname = %w[uname007 uname u_name u_name_007 u_007_name]
      nickname.each do |valid_nickname|
        @user.nickname = valid_nickname
        @user.should be_valid
      end
    end
+   
+   describe "when nickname is already taken" do
+    before do
+      user_with_same_nickname = @user.dup
+      user_with_same_nickname.save
+    end
+
+    it { should_not be_valid }
+   end
+
+
+  describe "when email address is already taken" do
+    before do
+      user_with_same_nickname = @user.dup
+      user_with_same_nickname.nickname = @user.nickname.upcase
+      user_with_same_nickname.save
+    end
+
+    it { should_not be_valid }
+  end  
 
   describe "when email format is invalid" do
     it "should be invalid" do
