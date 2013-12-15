@@ -242,6 +242,9 @@ input {
 .timestamp {
   color: $grayLight;
 }
+.user {
+  font-weight: bold;        
+}
 .gravatar {
   float: left;
   margin-right: 10px;

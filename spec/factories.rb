@@ -12,6 +12,14 @@ FactoryGirl.define do
     end
   end
 
+  factory :userToReplyTo, class: User do | user |
+    user.name "Donald Duck"
+    user.nick "donald"
+    user.email "donald@entenhausen.de"
+    user.password "foobar"
+    user.password_confirmation "foobar"
+  end 
+
   factory :micropost do
     content "Lorem ipsum"
     user

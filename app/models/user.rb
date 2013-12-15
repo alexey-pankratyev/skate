@@ -26,26 +26,24 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
     has_many :followers, through: :reverse_relationships, source: :follower
-    has_many :replies, class_name: "Recipient", dependent: :destroy
-    has_many :received_replies, through: :replies, source: :micropost
+    has_many :replies, foreign_key: "to_id", class_name: "Micropost"
 
     before_save { email.downcase! }
     before_save :create_remember_token
  
     email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i   
-    uname_regex = /^[a-z]\w*[a-z0-9]*$/i   
+    validates :email, #presence: true,
+             format: { with: email_regex },
+             uniqueness:  { case_sensitive: false }
 
-    validates :nickname, :presence   => true,
-                         :length     => { :maximum => 15 },
-                         :format     => { :with => uname_regex },
-                         :uniqueness => { :case_sensitive => false }
+    validates :nickname, presence: true,
+                         length: { maximum: 30 },
+                         uniqueness: { case_sensitive: false }
 
     validates :name,  presence: true,
                     length:    { maximum: 50 }
 
-    validates :email, #presence: true,
-             format: { with: email_regex },
-             uniqueness:  { case_sensitive: false }
+    
 
     validates :password, presence: true,
                length: { within: 6..40 }
@@ -55,9 +53,13 @@ class User < ActiveRecord::Base
   def feed
     # Это предварительное решение. См. полную реализацию в "Following users".
     # Micropost.where("user_id = ?", id)
-    Micropost.from_users_followed_by(self) 
-  end      
-  
+    Micropost.from_users_followed_by_including_replies(self) 
+  end    
+
+  def handle
+   "@#{nickname.downcase}"
+  end
+
   def following?(other_user)
     relationships.find_by_followed_id(other_user.id)
   end

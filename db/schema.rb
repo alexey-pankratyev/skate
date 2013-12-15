@@ -18,16 +18,10 @@ ActiveRecord::Schema.define(:version => 20131124185944) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "to_id"
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
-
-  create_table "recipients", :force => true do |t|
-    t.integer  "micropost_id"
-    t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
@@ -51,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20131124185944) do
     t.string   "remember_token"
     t.string   "nickname"
   end
- 
+
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["nickname"], :name => "index_users_on_nickname", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
