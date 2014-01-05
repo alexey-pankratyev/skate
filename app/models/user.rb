@@ -36,8 +36,10 @@ class User < ActiveRecord::Base
              format: { with: email_regex },
              uniqueness:  { case_sensitive: false }
 
+    uname_regex = /^[a-z](\w*[a-z0-9])*$/i
     validates :nickname, presence: true,
-                         length: { maximum: 30 },
+                         length: { maximum: 15 },
+                         format: { with: uname_regex },
                          uniqueness: { case_sensitive: false }
 
     validates :name,  presence: true,

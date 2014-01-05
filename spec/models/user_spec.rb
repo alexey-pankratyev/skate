@@ -17,7 +17,7 @@ require 'spec_helper'
 
 describe User do
   
-    before { @user = User.new(name: "Example User", email: "user@example.com", nickname: "Test",
+    before { @user = User.new(name: "Example User", email: "user@example.com", nickname: "test",
               password: "foobar", password_confirmation: "foobar") }
     subject { @user }
 
@@ -119,7 +119,7 @@ describe User do
       user_with_same_nickname = @user.dup
       user_with_same_nickname.save
     end
-
+ 
     it { should_not be_valid }
    end
 
