@@ -3,10 +3,11 @@
     <section>
       <h1>
       
-        <%= gravatar_for @user, size: 200 %>
+        <%= gravatar_for @user, size: 125 %>
         <%= @user.name %>
       
       </h1>
+      <span> <%= @user.handle %> </span>
     </section>
     <section>
       <%= render 'shared/stats' %>

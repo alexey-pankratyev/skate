@@ -49,6 +49,10 @@ describe "Static pages" do
         end
       end
 
+      describe "it should show the nick/handle" do
+         it { response.body.should have_selector 'span', content: user.handle}
+      end
+
       describe "follower/following counts" do
         let(:other_user) { FactoryGirl.create(:user) }
         before do
@@ -76,6 +80,12 @@ describe "Static pages" do
           response.body.should_not have_link('delete') 
           end
          end
+      end
+
+      it "should show the nicks" do
+           user.feed[1..28].each do |item|
+             response.body.should have_selector("li##{item.id}", content: item.user.handle)
+           end
       end
 
     end

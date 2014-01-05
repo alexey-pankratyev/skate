@@ -40,6 +40,7 @@ describe User do
     it { should respond_to(:following?) }
     it { should respond_to(:follow!) }
     it { should respond_to(:unfollow!) }
+    it { should respond_to(:replies) }
     it { should be_valid }
     it { should_not be_admin }
 
@@ -295,6 +296,18 @@ describe User do
       end
     end
 
+  end
+  
+  describe "handling replies" do
+    before(:each) do
+       @reply_to_user = FactoryGirl.create(:userToReplyTo)
+     end
+     it "should scope replies to self" do
+       @user.save
+       m = @user.microposts.create(content:"@donald to donald")
+       m.to.should == @reply_to_user
+       @reply_to_user.replies.should == [m]
+     end
   end
 
 end

@@ -171,6 +171,7 @@ describe "Users" do
 
     it { should have_selector('h1',    content: user.name) }
     it { should have_selector('title', content: user.name) }
+    it { should have_selector('span',  content: user.handle)}
 
     describe "microposts" do
       it { response.body.should have_content(m1.content) }
