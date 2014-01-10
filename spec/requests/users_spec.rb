@@ -246,6 +246,15 @@ describe "Users" do
       it { should have_selector('title', content: full_title('Following')) }
       it { should have_selector('h3', content: 'Following') }
       it { response.body.should have_link(other_user.name, href: user_path(other_user)) }
+      it { response.body.should have_link('1 Читаемых', href: following_user_path(user)) }
+      it { response.body.should have_link('0 Читающих', href: followers_user_path(user)) }
+      describe "should change amount following on profile" do
+       before do
+         visit user_path(user)
+       end
+       it { response.body.should have_link('1 Читаемых', href: following_user_path(user)) }
+       it { response.body.should have_link('0 Читающих', href: followers_user_path(user)) }
+      end
     end
 
     describe "followers" do
@@ -257,10 +266,17 @@ describe "Users" do
       it { should have_selector('title', content: full_title('Followers')) }
       it { should have_selector('h3', content: 'Followers') }
       it { response.body.should have_link(user.name, href: user_path(user)) }
+      it { response.body.should have_link('0 Читаемых', href: following_user_path(other_user)) }
+      it { response.body.should have_link('1 Читающих', href: followers_user_path(other_user)) }
+      
+      describe "should change amount followers on profile" do
+       before do
+         visit user_path(other_user)
+       end
+       it { response.body.should have_link('0 Читаемых', href: following_user_path(other_user)) }
+       it { response.body.should have_link('1 Читающих', href: followers_user_path(other_user)) }
+      end
     end
   end
    
-  
- 
- 
 end
