@@ -1,0 +1,26 @@
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+      
+        <%= gravatar_for @user, size: 125 %>
+        <%= @user.name %>
+      
+      </h1>
+      <span> <%= @user.handle %> </span>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <%= render 'follow_form' if signed_in? %>
+    <% if @user.microposts.any? %>
+      <h3>Микропосты (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
+</div>
