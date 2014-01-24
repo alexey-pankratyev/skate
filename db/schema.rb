@@ -11,14 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20131123010612) do
+=======
+ActiveRecord::Schema.define(:version => 20131124185944) do
+>>>>>>> 62f4b3c669fbf1b45ff8e0bd42a0b37383648eab
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
+<<<<<<< HEAD
     t.integer  "to_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+=======
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "to_id"
+>>>>>>> 62f4b3c669fbf1b45ff8e0bd42a0b37383648eab
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
@@ -37,10 +47,17 @@ ActiveRecord::Schema.define(:version => 20131123010612) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
+<<<<<<< HEAD
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.string   "salt"
     t.boolean  "admin",           :default => false
+=======
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "salt"
+    t.boolean  "admin"
+>>>>>>> 62f4b3c669fbf1b45ff8e0bd42a0b37383648eab
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "nickname"

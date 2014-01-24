@@ -245,7 +245,10 @@ DEPENDENCIES
   jquery-rails
   launchy
   libnotify (= 0.5.9)
+<<<<<<< HEAD
   nokogiri (~> 1.6.0)
+=======
+>>>>>>> 62f4b3c669fbf1b45ff8e0bd42a0b37383648eab
   pg
   rails (= 3.2.13)
   rb-inotify
