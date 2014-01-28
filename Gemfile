@@ -6,9 +6,7 @@ gem 'launchy'
 #gem 'thin'
 gem 'gravatar_image_tag' 
 gem 'rails' , '3.2.13'
-
 gem "pg" #, "~> 0.17.1"
-
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails'
@@ -19,10 +17,7 @@ gem 'faker', '1.0.1'
 gem 'slim-rails'
 gem 'compass-rails'
 gem 'russian', '~> 0.6.0'
-
 gem 'nokogiri', '~> 1.6.0'
-
-
 # Гемы, используемые только для ресурсов и не требуемые
 # в среде production по умолчанию.
 group :assets do
@@ -33,8 +28,8 @@ end
 
 group :production do
 
- gem 'pg'
-
+# gem 'pg'
+end
 
 group :development, :test  do
  gem 'rspec-rails'
