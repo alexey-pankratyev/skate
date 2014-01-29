@@ -11,7 +11,7 @@ include ApplicationHelper
   end
   
   def help
-    @title = "Help"
+    @title = "Help"  
   end
 
   def contact

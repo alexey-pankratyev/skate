@@ -2717,3 +2717,7 @@ Processing by UsersController#show as */*
   Rendered layouts/_header.html.erb (1.3ms)
   Rendered layouts/_footer.html.erb (0.3ms)
 Completed 200 OK in 663ms (Views: 643.4ms | ActiveRecord: 17.6ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
