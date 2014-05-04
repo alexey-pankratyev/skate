@@ -15,6 +15,7 @@
                  </a>
                  <ul class="dropdown-menu">
                   <li><%= link_to "Профиль", current_user %></li>
+                  <li><%= link_to "Приватное сообщение", received_direct_messages_path %></li>
                   <li><%= link_to "Настройка", edit_user_path(current_user) %></li>
                   <li class="divider"></li>
                   <li>
