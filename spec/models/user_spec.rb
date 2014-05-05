@@ -144,7 +144,7 @@ describe User do
    end
 
 
-  describe "when email address is already taken" do
+  describe "when nickname upcase is already taken" do
     before do
       user_with_same_nickname = @user.dup
       user_with_same_nickname.nickname = @user.nickname.upcase
