@@ -1,6 +1,7 @@
 class MicropostsController < ApplicationController
    before_filter :signed_in_user #, only: [:create, :destroy]
    before_filter :correct_user,   only: :destroy
+   before_filter :process_direct_message, :only => :create
 
   def create
     @micropost = current_user.microposts.build(params[:micropost])
@@ -10,17 +11,23 @@ class MicropostsController < ApplicationController
     else
       @feed_items = []
       render 'pages/home'
-      
     end
+
   end
-  
+
+  def process_direct_message
+    @micropost = current_user.microposts.build(params[:micropost])
+     if @micropost.direct_message_format?
+       direct_message = DirectMessage.new(@micropost.to_direct_message_hash)
+       redirect_to root_path if direct_message.save
+     end
+  end
+
   def destroy
     @micropost.destroy
     flash[:success] = "Micropost destroyed!"
     redirect_to root_url
   end
-
-  
 
   private
 
