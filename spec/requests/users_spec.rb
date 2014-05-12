@@ -176,7 +176,8 @@ describe "Users" do
     let!(:m2) { FactoryGirl.create(:micropost, user: user, content: "Bar") }
 
    
-    before { visit user_path(user) }
+    before { sign_in user
+             visit user_path(user) }
 
     it { should have_selector('h1',    content: user.name) }
     it { should have_selector('title', content: user.name) }

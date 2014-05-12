@@ -1,5 +1,6 @@
 
 FactoryGirl.define do
+  
   factory :user do
     sequence(:name)  { |n| "Person #{n}" }
     sequence(:nickname)  { |n| "Person#{n}" }
@@ -24,8 +25,10 @@ FactoryGirl.define do
      user.password "foobar"
      user.password_confirmation "foobar"
    end   
+
    factory :micropost_to_donald do |micropost|
      micropost.content "@donald bla bla bla"
      micropost.user :user
    end
+
 end
