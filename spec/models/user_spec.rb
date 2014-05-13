@@ -8,9 +8,10 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  salt            :string(255)
-#  admin           :boolean
+#  admin           :boolean          default(FALSE)
 #  password_digest :string(255)
 #  remember_token  :string(255)
+#  nickname        :string(255)
 #
 
 require 'spec_helper'
@@ -143,7 +144,7 @@ describe User do
    end
 
 
-  describe "when email address is already taken" do
+  describe "when nickname upcase is already taken" do
     before do
       user_with_same_nickname = @user.dup
       user_with_same_nickname.nickname = @user.nickname.upcase

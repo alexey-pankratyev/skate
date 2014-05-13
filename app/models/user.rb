@@ -8,9 +8,10 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  salt            :string(255)
-#  admin           :boolean
+#  admin           :boolean          default(FALSE)
 #  password_digest :string(255)
 #  remember_token  :string(255)
+#  nickname        :string(255)
 #
 
 

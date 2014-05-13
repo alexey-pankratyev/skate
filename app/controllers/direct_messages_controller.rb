@@ -1,4 +1,5 @@
 class DirectMessagesController < ApplicationController
+
  
   before_filter :signed_in_user
 
@@ -13,5 +14,6 @@ class DirectMessagesController < ApplicationController
     @direct_messages = DirectMessage.where(["recipient_id = ?", current_user])
       
   end
+
 
 end

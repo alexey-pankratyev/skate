@@ -6,11 +6,6 @@ Myndozero::Application.routes.draw do
   #get "pages/new"
   #get "users/new"
   
-  
-  
-  
-  
-
   root :to => 'pages#home'
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
