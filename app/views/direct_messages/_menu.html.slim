@@ -1,0 +1,5 @@
+ul
+  li
+    = link_to_unless_current "Полученные сообщения", received_direct_messages_path 
+  li
+    = link_to_unless_current "Отправленные сообщения", sent_direct_messages_path 

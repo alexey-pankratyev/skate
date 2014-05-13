@@ -2,11 +2,8 @@ require 'spec_helper'
 
 describe DirectMessagesController do
 
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
-    end
-  end
+ describe DirectMessage do
+   pending "add some examples to (or delete) #{__FILE__}"
+ end
 
 end

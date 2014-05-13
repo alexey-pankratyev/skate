@@ -1,0 +1,19 @@
+= render 'menu'
+
+table
+
+  tr
+
+   th align="left" width="60%" Получатель
+   
+   th align="left" width="60%"Cообщение
+
+  - @direct_messages.each do |dm|
+
+   tr
+    
+    td 
+     = dm.recipient.name 
+    
+    td 
+     = dm.content 

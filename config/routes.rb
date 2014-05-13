@@ -1,6 +1,6 @@
 Myndozero::Application.routes.draw do
 
-  get "direct_messages/new"
+  # get "direct_messages/new"
 
   #get "sessions/new"
   #get "pages/new"
@@ -11,10 +11,12 @@ Myndozero::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :pages
   
-  resources :direct_messages, only: [] do
+  resources :direct_messages , only: [] do
     get :received, on:  :collection
     get :sent, on: :collection
   end
+  # match '/sent_direct_messages',  :to => 'direct_messages#sent'
+  
   
     match '/contact', :to => 'pages#contact'
     match '/about',   :to => 'pages#about'
