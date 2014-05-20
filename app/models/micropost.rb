@@ -51,7 +51,6 @@ class Micropost < ActiveRecord::Base
       :recipient_id => message_recipient.id }
   end
 
-
  private
 
   # Return an SQL condition for users followed by the given user.
@@ -83,7 +82,7 @@ class Micropost < ActiveRecord::Base
  end
 
  def message_recipient
-      @recipient ||= User.find_by_username(extract_username_from_direct_message)
+      @recipient ||= User.find_by_name(extract_username_from_direct_message)
  end
  
 end

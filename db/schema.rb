@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20140502124008) do
 
-
   create_table "direct_messages", :force => true do |t|
     t.string   "content"
     t.integer  "sender_id"

@@ -15,13 +15,7 @@ class MicropostsController < ApplicationController
 
   end
 
-  def process_direct_message
-    @micropost = current_user.microposts.build(params[:micropost])
-     if @micropost.direct_message_format?
-       direct_message = DirectMessage.new(@micropost.to_direct_message_hash)
-       redirect_to root_path if direct_message.save
-     end
-  end
+ 
 
   def destroy
     @micropost.destroy
@@ -35,5 +29,14 @@ class MicropostsController < ApplicationController
       @micropost = current_user.microposts.find_by_id(params[:id])
       redirect_to root_url if @micropost.nil?
     end
+
+    def process_direct_message
+    @micropost = current_user.microposts.build(params[:micropost])
+     if @micropost.direct_message_format?
+       direct_message = DirectMessage.new(@micropost.to_direct_message_hash)
+       redirect_to root_path if direct_message.save
+    end
+    
+  end
 
 end
