@@ -3,8 +3,8 @@
 
 - if @direct_messages
 
- table 
-  tr class="direct_tables"
+ table class="direct_tables" 
+  tr 
    
     th  Отправитель
 
@@ -17,7 +17,7 @@
     td 
      div class="user_avatars"
       = link_to gravatar_for(dm.sender, size: 60), dm.sender
-          
+         
     td 
       span class="user"
       = link_to dm.sender.name, dm.sender
