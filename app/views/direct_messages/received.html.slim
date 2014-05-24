@@ -1,31 +1,30 @@
 = render 'menu'
 
-
 - if @direct_messages
 
- table class="direct_tables" 
-  tr 
+ div id="direct_tables"
+  
+  div  class="tbl"
    
-    th  Отправитель
-
-    th  Cообщение
+    h3 Отправитель
+    h3 Cообщение
+    br
+    br
 
   - @direct_messages.each do |dm|
-   
-    tr 
-
-    td 
-     div class="user_avatars"
-      = link_to gravatar_for(dm.sender, size: 60), dm.sender
-         
-    td 
-      span class="user"
+    ul 
+    li
+     div class="tbl1" 
+      div class="user_avatars"
+       = link_to gravatar_for(dm.sender, size: 60), dm.sender
+     span class="user"   
       = link_to dm.sender.name, dm.sender
       |  
-      span class="handle"
+     span class="handle"
       = link_to  dm.sender.handle, dm.sender 
-      span class="content"
+     span class="content"
        = dm.content
-      span class="timestamp"
+     span class="timestamp"
        = time_ago_in_words(dm.created_at) 
-      ago. 
+     ago. 
+= will_paginate      
