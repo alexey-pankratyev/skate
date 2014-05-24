@@ -15,17 +15,16 @@
     ul 
     li
      div class="tbl1" 
+      span class="user"
+       = link_to dm.recipient.name, dm.recipient
+      |  
+      span class="handle"
+       = link_to  dm.recipient.handle, dm.recipient 
       div class="user_avatars"
        = link_to gravatar_for(dm.recipient, size: 60), dm.recipient
-     span class="user"
-      = link_to dm.recipient.name, dm.recipient
-     |  
-     span class="handle"
-      = link_to  dm.recipient.handle, dm.recipient 
-     span class="content"
-      = dm.content
-     |
-     span class="timestamp"
-      = time_ago_in_words(dm.created_at) 
-     ago.
-  = will_paginate        
+    span class="content"
+     = dm.content
+    span class="timestamp"
+     = time_ago_in_words(dm.created_at) 
+    ago.
+= will_paginate        
