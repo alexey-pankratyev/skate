@@ -1,15 +1,5 @@
 = render 'menu'
-
-- if @direct_messages
-
- div id="direct_tables"
-  
-  div  class="tbl"
-   
-    h3 Отправитель
-    h3 Cообщение
-    br
-    br
+= render 'direct_messages'
 
   - @direct_messages.each do |dm|
     ul 

@@ -1,0 +1,30 @@
+- if @direct_messages
+
+ div id="direct_tables"
+  
+  div  class="tbl"
+   
+    - if controller_name == 'direct_messages' && action_name == 'received'
+      h3 Отправитель
+    - if controller_name == 'direct_messages' && action_name == 'sent' 
+      h3 Получатель
+    br
+    br
+  - @user.each do |dm|
+    ul 
+    li
+     div class="tbl1" 
+     
+      span class="user"   
+       - link_to dm.use.name, dm.use
+      |  
+      span class="handle"
+       - link_to  dm.use.handle, dm.use
+      div class="user_avatars"
+       - link_to gravatar_for(dm.use, size: 60), dm.use
+    span class="content"
+     = dm.content
+    span class="timestamp"
+     = time_ago_in_words(dm.created_at) 
+    ago. 
+= will_paginate        
