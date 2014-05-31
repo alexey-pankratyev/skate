@@ -1,20 +1,4 @@
 = render 'menu'
 = render 'direct_messages'
 
-  - @direct_messages.each do |dm|
-    ul 
-    li
-     div class="tbl1" 
-      span class="user"   
-       = link_to dm.sender.name, dm.sender
-      |  
-      span class="handle"
-       = link_to  dm.sender.handle, dm.sender
-      div class="user_avatars"
-       = link_to gravatar_for(dm.sender, size: 60), dm.sender
-    span class="content"
-     = dm.content
-    span class="timestamp"
-     = time_ago_in_words(dm.created_at) 
-    ago. 
-= will_paginate      
+ 
