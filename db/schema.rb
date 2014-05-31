@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140502124008) do
+ActiveRecord::Schema.define(:version => 20140504013503) do
 
   create_table "direct_messages", :force => true do |t|
     t.string   "content"

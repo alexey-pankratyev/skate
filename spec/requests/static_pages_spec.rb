@@ -4,12 +4,6 @@
 require 'spec_helper'
 
 describe "Static pages" do
-  #render_views
-    
-  before(:each) do
-    @base_title = "Mynda"
-  end
-
   
  subject { response }
 
