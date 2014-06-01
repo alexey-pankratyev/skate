@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
    before_filter :signed_in_user , only: [:create, :destroy]
    before_filter :correct_user,   only: :destroy
-   before_filter :process_direct_message, :only => :create
+   before_filter :process_direct_message, only: :create
 
   def create
     @micropost = current_user.microposts.build(params[:micropost])
@@ -14,8 +14,6 @@ class MicropostsController < ApplicationController
     end
 
   end
-
- 
 
   def destroy
     @micropost.destroy

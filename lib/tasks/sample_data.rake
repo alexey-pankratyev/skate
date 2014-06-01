@@ -1,4 +1,4 @@
-namespace :db do
+ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
    make_users
@@ -6,9 +6,9 @@ namespace :db do
    make_relationships
    make_direct_messages
   end
-end
+ end
 
-def make_users 
+ def make_users 
     Rake::Task['db:reset'].invoke
     admin = User.create!(:name => "Alexey",
                  :nickname => "rezter",
@@ -28,29 +28,31 @@ def make_users
                    password: password,
                    password_confirmation: password)
     end
-end
+ end
 
-def make_microposts
+ def make_microposts
     users = User.all(limit: 6)
     50.times do
       content = Faker::Lorem.sentence(5)
       users.each { |user| user.microposts.create!(content: content) }
     end
-end
+ end
 
-def make_relationships
+ def make_relationships
   users = User.all
   user  = users.first
   followed_users = users[2..50]
   followers      = users[3..40]
   followed_users.each { |followed| user.follow!(followed) }
   followers.each      { |follower| follower.follow!(user) }
-end
+ end
 
-def make_direct_messages
-  users = User.all(limit: 6)
-        50.times do
-      content = Faker::Lorem.sentence(5)
-      users.each { |user| user.microposts.create!(content: content) }
-    end
-end
+ def make_direct_messages
+   users = User.all(limit: 6)
+   50.times do
+    content = Faker::Lorem.sentence(5)
+    users.each { |user| DirectMessage.create!(sender_id: user.id,
+                                              recipient_id: users[0].id,
+                                              content: content) }
+   end
+ end
