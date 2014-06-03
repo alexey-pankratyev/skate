@@ -7,7 +7,7 @@ gem 'launchy'
 gem 'gravatar_image_tag' 
 gem 'rails' , '3.2.13'
 gem "pg" #, "~> 0.17.1"
-gem 'will_paginate', '3.0.3'
+gem 'will_paginate'#, '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails'
 # gem 'typus', :git => 'git://github.com/fesplugas/typus.git'

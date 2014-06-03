@@ -1,5 +1,7 @@
 - if @direct_messages
 
+ = will_paginate
+
  div id="direct_tables"
   
   div  class="tbl"
@@ -11,22 +13,23 @@
     h3 Cообщение
     br
     br
-  
-  - @user.each do |dm|
+
+  -@direct_messages.each do |dm|
     ul 
     li
      div class="tbl1" 
      
-      span class="sender."   
+      span class="user"   
        = link_to dm.send(@use).name, dm.send(@use)
       |  
       span class="handle"
        = link_to  dm.send(@use).handle, dm.send(@use)
-      div class="sender._avatars"
+      div class="user_avatars"
        = link_to gravatar_for(dm.send(@use),size: 60), dm.send(@use)
     span class="content"
      = dm.content
     span class="timestamp"
      = time_ago_in_words(dm.created_at) 
     ago. 
-= will_paginate        
+
+ = will_paginate
