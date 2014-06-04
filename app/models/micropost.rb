@@ -20,7 +20,8 @@ class Micropost < ActiveRecord::Base
   
 
   NICKNAME_REGEX = /@\w+/i
-  DIRECT_MESSAGE_REGEX = /^d\s[a-z](\w*[a-z0-9])*\s/i
+  
+  DIRECT_MESSAGE_REGEX = /^d\s"([a-z](.*)*){1,10}"/i
 
   belongs_to :user
   belongs_to :to, class_name: "User" 
@@ -30,6 +31,7 @@ class Micropost < ActiveRecord::Base
   validates :user_id, presence: true 
   
   default_scope order: 'microposts.created_at DESC'
+
   
   before_save :extract_in_reply_to
 
@@ -38,6 +40,7 @@ class Micropost < ActiveRecord::Base
   
   # same, including replies.
   scope :from_users_followed_by_including_replies, lambda { |user| followed_by_including_replies(user)}
+  
   
   def direct_message_format?
     self.content.clone.match(DIRECT_MESSAGE_REGEX) && message_recipient
@@ -76,8 +79,8 @@ class Micropost < ActiveRecord::Base
   end
 
  def extract_username_from_direct_message
-      username = self.content.clone.match( DIRECT_MESSAGE_REGEX )[0].strip
-      username.slice!('d ')
+      username = self.content.clone.match( DIRECT_MESSAGE_REGEX )[0].strip.to_s
+      username.gsub!(/(^d\s\"|\"$)/,'')
       username
  end
 

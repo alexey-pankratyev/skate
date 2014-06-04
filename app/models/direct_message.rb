@@ -21,4 +21,6 @@ class DirectMessage < ActiveRecord::Base
    validates :sender, :presence => true
    validates :recipient, :presence => true
 
+   default_scope order: 'direct_messages.created_at DESC'
+
 end
