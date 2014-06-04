@@ -21,7 +21,7 @@ class Micropost < ActiveRecord::Base
 
   NICKNAME_REGEX = /@\w+/i
   
-  DIRECT_MESSAGE_REGEX = /^d\s"([a-z](.*)*){1,10}"/i
+  DIRECT_MESSAGE_REGEX = /^d\s"([a-z](\w*[a-z0-9].*)*\s*){1,10}"/i
 
   belongs_to :user
   belongs_to :to, class_name: "User" 
