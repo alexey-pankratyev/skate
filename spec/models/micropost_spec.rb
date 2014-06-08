@@ -58,22 +58,22 @@ describe Micropost do
        @micropost = user.microposts.create(content: "#{@reply_to_user.handle} look a reply to Donald")
      end
      it "should identify a @user and set the in_reply_to field accordingly" do
-       @micropost.to.should == @reply_to_user
-     end
+       expect(@micropost.to).to eq(@reply_to_user)
+     end 
   end
 
   describe "from_users_followed_by_including_replies" do
 
    before(:each) do
-     @other_user = FactoryGirl.create(:user, :email => FactoryGirl.generate(:email))
-     @third_user = FactoryGirl.create(:user, :email => FactoryGirl.generate(:email))
+     @other_user = FactoryGirl.create(:user, email: FactoryGirl.generate(:email))
+     @third_user = FactoryGirl.create(:user, email: FactoryGirl.generate(:email))
 
-     @user_post  = @user.microposts.create!(:content => "foo")
-     @other_post = @other_user.microposts.create!(:content => "bar")
-     @third_post = @third_user.microposts.create!(:content => "baz")
+     @user_post  = @user.microposts.create!(content: "foo")
+     @other_post = @other_user.microposts.create!(content: "bar")
+     @third_post = @third_user.microposts.create!(content: "baz")
 
      @userToReplyTo = FactoryGirl.create(:userToReplyTo)
-     @forth_post = @third_user.microposts.create!(:content => "@#{@userToReplyTo.shorthand} baz")
+     @forth_post = @third_user.microposts.create!(content: "@#{@userToReplyTo.shorthand} baz")
 
      @user.follow!(@other_user)
  
@@ -99,5 +99,50 @@ describe Micropost do
    end
  
   end
+
+  context  "when direct_message works "  do
+   
+   it "should have a from_users_followed_by class method" do
+       should respond_to(:to_direct_message_hash)
+   end
+
+   it "should have a direct_message_format? class method" do
+       should respond_to(:direct_message_format?) 
+   end
+   
+   context "when content starts with 'd'" do
+
+      let(:user) { FactoryGirl.create(:user, name: "recipient", email: 'r@xmpl.com') }
+      
+      it "should return true if username is valid" do
+         micropost = user.microposts.build(content: 'd "recipient" valid direct message') 
+         micropost.direct_message_format?.should be_true
+      end
+      
+      it "should return true if email is valid" do
+         user.email == "r@xmpl.com"
+         user.should be_valid 
+      end
+
+      it "should return false if username is invalid" do
+        micropost = user.microposts.build(content: "d ivalid_recipient valid direct message") 
+        micropost.direct_message_format?.should be_false
+      end
+    
+   end 
+
+   context "#to_direct_message_hash" do
+    let(:user) { FactoryGirl.create(:user, name: "recipient", email: 'r@xmpl.com') }
+    it "should return a hash that can be readily sent to DirectMessage#new" do
+      micropost = user.microposts.build(content: 'd "recipient" valid direct message')
+      direct_message = DirectMessage.new( micropost.to_direct_message_hash )
+      direct_message.should be_valid
+    end
+   end 
+
+  end
+     
+  
+  
    
 end

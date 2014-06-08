@@ -21,11 +21,11 @@ class Micropost < ActiveRecord::Base
 
   NICKNAME_REGEX = /@\w+/i
   
-  DIRECT_MESSAGE_REGEX = /^d\s"([a-z](\w*[a-z0-9].*)*\s*){1,10}"/i
+  DIRECT_MESSAGE_REGEX = /^d\s*\"\s*([a-z](\w*[a-z0-9]\s*)*\s*){1,10}\"/i
 
   belongs_to :user
   belongs_to :to, class_name: "User" 
-  # has_many :recipients, :dependent => :destroy
+
   
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true 
@@ -50,8 +50,8 @@ class Micropost < ActiveRecord::Base
     body = self.content.clone
     body.slice!(DIRECT_MESSAGE_REGEX) # remove 'd username '
     
-    { :content => body, :sender_id => self.user_id,
-      :recipient_id => message_recipient.id }
+    { content: body, sender_id: self.user_id, recipient_id: message_recipient.id }
+    
   end
 
  private
@@ -80,7 +80,8 @@ class Micropost < ActiveRecord::Base
 
  def extract_username_from_direct_message
       username = self.content.clone.match( DIRECT_MESSAGE_REGEX )[0].strip.to_s
-      username.gsub!(/(^d\s\"|\"$)/,'')
+      username.gsub!(/(^d\s|\")/,'').lstrip! 
+      username.rstrip!
       username
  end
 

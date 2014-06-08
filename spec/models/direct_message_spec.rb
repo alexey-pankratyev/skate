@@ -15,9 +15,33 @@ require 'spec_helper'
 
 describe DirectMessage do
   
+
+  let(:sender) { FactoryGirl.create(:user, name: 'sndr', email: 's@example.com') }
+  let(:recipient) { FactoryGirl.create(:user, name: 'rcpnt', email: 'r@example.com') }
+  before {  
+   @direct_message = DirectMessage.create!( sender_id: sender.id, recipient_id: recipient.id, content: 'some content')
+  }
+
+   subject { @direct_message }
+  
+  it { should be_valid }
   it { should respond_to(:content) }
   it { should respond_to(:recipient_id) }
   it { should respond_to(:sender_id) }
 
+  context  "should not be valid without a sender" do
+    before { @direct_message.sender_id = nil } 
+    it { should_not be_valid }
+  end
+
+  context  "should not be valid without a sender" do
+    before { @direct_message.recipient_id = nil } 
+    it { should_not be_valid }
+  end
+
+  context  "should not be valid without a sender" do
+    before { @direct_message.content = " " } 
+    it { should_not be_valid }
+  end
 
 end

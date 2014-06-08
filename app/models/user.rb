@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
     has_many :followers, through: :reverse_relationships, source: :follower
     has_many :replies, foreign_key: "to_id", class_name: "Micropost"
+    # has_many :DirectMessages, foreign_key: "sender_id"
+   
 
     before_save { email.downcase! }
     before_save :create_remember_token
@@ -51,7 +53,8 @@ class User < ActiveRecord::Base
     validates :password, presence: true,
                length: { within: 6..40 }
 
-    validates :password_confirmation, presence: true    
+    validates :password_confirmation, presence: true 
+
 
   def feed
      Micropost.from_users_followed_by_including_replies(self) 
