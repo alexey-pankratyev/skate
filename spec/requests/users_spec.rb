@@ -124,9 +124,27 @@ describe "Users" do
    let(:user) { FactoryGirl.create(:user) }
     before { 
        sign_in user
-       #visit edit_user_path(user)
-              }
+            }
     it { response.body.should have_link('Приватное сообщение', href: received_direct_messages_path) }
+
+    context "within Direct Messages link" do
+
+      it "should have a 'Sent Items' link" do
+        visit root_path
+        click_link 'Приватное сообщение'
+        response.should have_selector("a", href: sent_direct_messages_path,
+                                           content:  "Отправленные сообщения")
+      end
+
+      it "should have a 'Received Items' link" do
+        visit root_path
+        click_link 'Приватное сообщение'
+        click_link "Отправленные сообщения"
+        response.should have_selector("a", href: received_direct_messages_path,
+                                           content: "Полученные сообщения")
+      end
+    end
+
   end
 
   describe "edit" do

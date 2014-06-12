@@ -17,7 +17,11 @@ end
   # cookies[:remember_token] = user.remember_token
  end
 
- 
+def post_micropost(content)
+  visit '/'
+  fill_in :micropost_content, with: content
+  click_button "Post"
+end
 
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
