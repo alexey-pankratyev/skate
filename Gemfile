@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "1.9.3"  
 
-
+gem "mail"
 gem 'sprockets'
 gem 'launchy'
 #gem 'thin'
@@ -21,17 +21,17 @@ gem 'compass-rails'
 gem 'russian', '~> 0.6.0'
 gem 'nokogiri', '~> 1.6.0'
 
+group :production do
+
+# gem 'pg'
+end
+
 # Гемы, используемые только для ресурсов и не требуемые
 # в среде production по умолчанию.
 group :assets do
   gem 'sass-rails',   "~> 3.2.3"
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
-end
-
-group :production do
-
-# gem 'pg'
 end
 
 group :development, :test  do

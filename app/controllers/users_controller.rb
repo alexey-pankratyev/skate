@@ -27,6 +27,7 @@
     if @user.save
      sign_in @user
      flash[:success] = "Welcome"
+     UserMailer.welcome_email(@user).deliver
      redirect_to @user
     else
      @title = "Sign up"
