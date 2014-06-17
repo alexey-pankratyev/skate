@@ -5,7 +5,7 @@ require 'spec_helper'
 
 describe "Static pages" do
   
- subject { response }
+ subject { page }
 
   shared_examples_for "all static pages" do
      it { should have_selector('h4', content: heading) }
@@ -17,7 +17,7 @@ describe "Static pages" do
      it { should have_selector('title', content: full_title(page_title)) }
   end
  
-  describe "Home page" do
+  describe "Home page" do 
      before { visit root_path }
        let(:heading)    { 'Мянда затерянный край вдали городов !!!' }
        let(:page_title) { '' }
@@ -38,13 +38,13 @@ describe "Static pages" do
 
       it "should render the user's feed" do
         user.feed[1..28].each do |item|
-          response.body.should have_selector("li##{item.id}", content: item.content)
-          response.body.should have_link('delete') 
+          should have_selector("li##{item.id}", content: item.content)
+          should have_link('delete') 
         end
       end
 
       describe "it should show the nick/handle" do
-         it { response.body.should have_selector 'span', content: user.handle}
+         it { should have_selector 'span', content: user.handle}
       end
 
       describe "follower/following counts" do
@@ -54,16 +54,16 @@ describe "Static pages" do
           visit root_path
         end
 
-        it { response.body.should have_link("0 Читаемых", href: following_user_path(user)) }
-        it { response.body.should have_link("1 Читающих", href: followers_user_path(user)) }
+        it { should have_link("0 Читаемых", href: following_user_path(user)) }
+        it { should have_link("1 Читающих", href: followers_user_path(user)) }
       end
 
       it "should have micropost count and pluralize" do
-        response.body.should have_content('33 microposts')
+        should have_content('33 microposts')
       end
 
       it "should paginate after 31" do
-        response.body.should have_selector('div.pagination')
+        should have_selector('div.pagination')
       end
 
       describe "check link 'delete' user" do
@@ -71,14 +71,14 @@ describe "Static pages" do
         before { get user_path(user) }
          it "should_not the user's links 'delete'" do
           user.feed[1..28].each do |item|
-          response.body.should_not have_link('delete') 
+          should_not have_link('delete') 
           end
          end
       end
 
       it "should show the nicks" do
            user.feed[1..28].each do |item|
-             response.body.should have_selector("li##{item.id}", content: item.user.handle)
+             should have_selector("li##{item.id}", content: item.user.handle)
            end
       end
 
@@ -101,26 +101,26 @@ describe "Static pages" do
 
   describe "Contact page" do
     before { visit '/contact' }
-     it { response.body.should include("Моя любимая жена!") } 
-     it { should have_selector('title', content: full_title('Contact')) }
+     it { should have_text("Моя любимая жена!") } 
+     it { should have_title(full_title('Contact')) }
   end
   
   describe "Email page" do
     before { visit '/email' }
-     it { response.body.should include("Пример для саита!") } 
+     it { should have_text("Пример для саита!") } 
      it { should have_selector('title', content: full_title('Email')) }
   end
 
   describe "Reviews page" do
     before { visit 'reviews' }
-    it { response.body.should include("Пример для саита!") } 
+    it { should have_text("Пример для саита!") } 
     it { should have_selector('title', content: full_title('Reviews')) }
   end
 
   it "should have the right links on the layout" do
     visit '/'
     click_link "Цены"
-    response.should have_selector 'title', content: full_title('About')
+    should have_selector 'title', content: full_title('About')
    end
 
  end

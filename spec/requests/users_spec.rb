@@ -5,7 +5,8 @@ require 'spec_helper'
 
 describe "Users" do
 
- subject { response }
+
+ subject { page }
 
   describe "index" do
 
@@ -13,8 +14,8 @@ describe "Users" do
 
     before(:each) do
       sign_in user
-      visit users_path
-    end
+      visit users_path 
+    end 
 
     it { should have_selector('title', content: 'All users') }
     it { should have_selector('h1',    content: 'All users') }
@@ -28,14 +29,15 @@ describe "Users" do
 
       it "should list each user" do
         User.paginate(page: 1).each do |user|
-          response.body.should have_selector('li', content: user.name)
+          should have_selector('li', content: user.name)
         end
       end
     end
 
     describe "delete links" do
+      subject { page }
 
-      it { response.body.should_not have_link('delete') }
+      it { should_not have_link('delete') }
 
       describe "as an admin user" do
         let(:admin) { FactoryGirl.create(:admin) }
@@ -44,11 +46,12 @@ describe "Users" do
           visit users_path
         end
 
-        it { response.body.should have_link('delete', href: user_path(User.first)) }
+        it { should have_link('delete', href: user_path(User.first)) }
         it "should be able to delete another user" do
-          expect { click_link('delete', :method => :delete) }.to change(User, :count).by(-1)
+           expect do click_link('delete', match: :first)
+          end.to change(User, :count).by(-1)
         end
-        it { response.body.should_not have_link('delete', href: user_path(admin)) }
+        it { should_not have_link('delete', href: user_path(admin)) }
       end
     end
     
@@ -110,10 +113,10 @@ describe "Users" do
       describe "after saving the user" do
         before { click_button submit }
          let(:user) { User.find_by_email('user@example.com') }
-         it { response.body.should include(user.name) } 
+         
          it { should have_selector('title', content: user.name) }
          it { should have_selector('div.alert.alert-success', content: 'Welcome') }
-         it { response.body.should have_link('Выйти') }
+         it { should have_link('Выйти') }
 
       end
 
@@ -125,14 +128,14 @@ describe "Users" do
     before { 
        sign_in user
             }
-    it { response.body.should have_link('Приватное сообщение', href: received_direct_messages_path) }
+    it { should have_link('Приватное сообщение', href: received_direct_messages_path) }
 
     context "within Direct Messages link" do
 
       it "should have a 'Sent Items' link" do
         visit root_path
         click_link 'Приватное сообщение'
-        response.should have_selector("a", href: sent_direct_messages_path,
+        should have_selector("a", href: sent_direct_messages_path,
                                            content:  "Отправленные сообщения")
       end
 
@@ -140,7 +143,7 @@ describe "Users" do
         visit root_path
         click_link 'Приватное сообщение'
         click_link "Отправленные сообщения"
-        response.should have_selector("a", href: received_direct_messages_path,
+        should have_selector("a", href: received_direct_messages_path,
                                            content: "Полученные сообщения")
       end
     end
@@ -157,13 +160,13 @@ describe "Users" do
     describe "page" do
       it { should have_selector('h1',    content: "Update your profile") }
       it { should have_selector('title', content: user.name) }
-      it { response.body.should have_link('change', href: 'http://gravatar.com/emails') }
+      it { should have_link('change', href: 'http://gravatar.com/emails') }
     end
 
     describe "with invalid information" do
       before { click_button "Save changes" }
 
-      it { response.body.should have_content('error') }
+      it { should have_content('error') }
     end
 
     describe "with valid information" do
@@ -181,7 +184,7 @@ describe "Users" do
 
       it { should have_selector('title', content: new_name) }
       it { should have_selector('div.alert.alert-success') }
-      it { response.body.should have_link('Выйти', href: signout_path) }
+      it { should have_link('Выйти', href: signout_path) }
       specify { user.reload.name.should  == new_name }
       specify { user.reload.email.should == new_email }
     end
@@ -202,9 +205,9 @@ describe "Users" do
     it { should have_selector('span',  content: user.handle)}
 
     describe "microposts" do
-      it { response.body.should have_content(m1.content) }
-      it { response.body.should have_content(m2.content) }
-      it { response.body.should have_content(user.microposts.count) }
+      it { should have_content(m1.content) }
+      it { should have_content(m2.content) }
+      it { should have_content(user.microposts.count) }
     end
 
     describe "follow/unfollow buttons" do
@@ -273,15 +276,15 @@ describe "Users" do
 
       it { should have_selector('title', content: full_title('Following')) }
       it { should have_selector('h3', content: 'Following') }
-      it { response.body.should have_link(other_user.name, href: user_path(other_user)) }
-      it { response.body.should have_link('1 Читаемых', href: following_user_path(user)) }
-      it { response.body.should have_link('0 Читающих', href: followers_user_path(user)) }
+      it { should have_link(other_user.name, href: user_path(other_user)) }
+      it { should have_link('1 Читаемых', href: following_user_path(user)) }
+      it { should have_link('0 Читающих', href: followers_user_path(user)) }
       describe "should change amount following on profile" do
        before do
          visit user_path(user)
        end
-       it { response.body.should have_link('1 Читаемых', href: following_user_path(user)) }
-       it { response.body.should have_link('0 Читающих', href: followers_user_path(user)) }
+       it { should have_link('1 Читаемых', href: following_user_path(user)) }
+       it { should have_link('0 Читающих', href: followers_user_path(user)) }
       end
     end
 
@@ -293,16 +296,16 @@ describe "Users" do
 
       it { should have_selector('title', content: full_title('Followers')) }
       it { should have_selector('h3', content: 'Followers') }
-      it { response.body.should have_link(user.name, href: user_path(user)) }
-      it { response.body.should have_link('0 Читаемых', href: following_user_path(other_user)) }
-      it { response.body.should have_link('1 Читающих', href: followers_user_path(other_user)) }
+      it { should have_link(user.name, href: user_path(user)) }
+      it { should have_link('0 Читаемых', href: following_user_path(other_user)) }
+      it { should have_link('1 Читающих', href: followers_user_path(other_user)) }
       
       describe "should change amount followers on profile" do
        before do
          visit user_path(other_user)
        end
-       it { response.body.should have_link('0 Читаемых', href: following_user_path(other_user)) }
-       it { response.body.should have_link('1 Читающих', href: followers_user_path(other_user)) }
+       it { should have_link('0 Читаемых', href: following_user_path(other_user)) }
+       it { should have_link('1 Читающих', href: followers_user_path(other_user)) }
       end
     end
   end

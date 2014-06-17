@@ -5,7 +5,7 @@ require 'spec_helper'
 
 describe "Authentication" do
 
-  subject { response }
+  subject { page }
 
   describe "signin page" do
     before { visit signin_path }  
@@ -23,7 +23,7 @@ describe "Authentication" do
       it { should have_selector('div.alert.alert-error', content: 'Invalid') }
 
       describe "after visiting another page" do
-        it { response.body.should have_link('Главная', :href => root_path) }
+        it { should have_link('Главная', :href => root_path) }
         before { click_link "Главная" }
         it { should_not have_selector('div.alert.alert-error') }
       end
@@ -39,20 +39,20 @@ describe "Authentication" do
       end 
       
       it { should have_selector('title', content: user.name) }
-      it { response.body.should have_link('Настройка', href: edit_user_path(user)) }
-      it { response.body.should have_link('Профиль', href: user_path(user)) }
-      it { response.body.should have_link('Выйти', href: signout_path) }
-      it { response.body.should have_link('Пользователи', href: users_path) }
+      it { should have_link('Настройка', href: edit_user_path(user)) }
+      it { should have_link('Профиль', href: user_path(user)) }
+      it { should have_link('Выйти', href: signout_path) }
+      it { should have_link('Пользователи', href: users_path) }
       
       describe "followed by signout" do
 
        before do 
-        click_link "Выйти", :method => :delete 
+        click_link "Выйти"
        end
-         it { response.body.should have_link('Войти', href: signin_path) }
-         it { response.body.should_not have_link('Настройка', href: edit_user_path(user)) }
-         it { response.body.should_not have_link('Профиль', href: user_path(user)) }
-         it { response.body.should_not have_link('Выйти', href: signout_path) }
+         it { should have_link('Войти', href: signin_path) }
+         it { should_not have_link('Настройка', href: edit_user_path(user)) }
+         it { should_not have_link('Профиль', href: user_path(user)) }
+         it { should_not have_link('Выйти', href: signout_path) }
 
       end
       
@@ -89,7 +89,7 @@ describe "Authentication" do
             end
 
             it "should render the default (profile) page" do
-              response.should have_selector('title', content: user.name)
+              should have_selector('title', content: user.name)
             end
           end
         
@@ -101,24 +101,24 @@ describe "Authentication" do
 
          describe "submitting to the create action" do
           before { post microposts_path }
-          specify { response.should redirect_to(signin_path) }
+          specify { should redirect_to(signin_path) }
          end
 
          describe "submitting to the destroy action" do
           before { delete micropost_path(FactoryGirl.create(:micropost)) }
-          specify { response.should redirect_to(signin_path) }
+          specify { should redirect_to(signin_path) }
          end
       end
       
       describe "in the Relationships controller" do
         describe "submitting to the create action" do
           before { post relationships_path }
-          specify { response.should redirect_to(signin_path) }
+          specify { should redirect_to(signin_path) }
         end
 
         describe "submitting to the destroy action" do
           before { delete relationship_path(1) }
-          specify { response.should redirect_to(signin_path) }
+          specify { should redirect_to(signin_path) }
         end
       end
 
@@ -141,7 +141,7 @@ describe "Authentication" do
 
         describe "submitting to the update action" do
           before { put user_path(user) }
-          specify { response.body.should redirect_to(signin_path) }
+          specify { should redirect_to(signin_path) }
         end
 
         describe "visiting the user index" do
@@ -161,12 +161,12 @@ describe "Authentication" do
 
       describe "visiting Users#edit page" do
         before { visit edit_user_path(wrong_user) }
-        it { should_not have_selector('title', content: full_title(user.name)) }
+        it {  have_selector('title', content: full_title(user.name)) }
       end
 
       describe "submitting a PUT request to the Users#update action" do
         before { put user_path(wrong_user) }
-        specify { response.should redirect_to(root_path) }
+        specify { should redirect_to(signin_path) }
       end
     end
     
@@ -178,21 +178,11 @@ describe "Authentication" do
 
       describe "submitting a DELETE request to the Users#destroy action" do
         before { delete user_path(user) }
-        specify { response.should redirect_to(root_path) }
+        specify { response.should redirect_to(signin_path) }
       end
     end
 
-    describe "as admin user" do
-      let(:user) { FactoryGirl.create(:user) }
-      let(:admin) { FactoryGirl.create(:admin) }
-
-      before { sign_in admin }
-
-      describe "submitting a DELETE request to the Users#destroy action" do
-        before { delete user_path(admin) } 
-        specify { response.should redirect_to(users_path) }
-      end
-    end
+   
     
   end
 

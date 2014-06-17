@@ -2,7 +2,7 @@ require 'spec_helper'
 # encoding: utf-8
  describe "DirectMessage" do
 
-  subject { response }
+  subject { page }
 
   let(:sender) { FactoryGirl.create(:userToReplyTo) }
   let(:recipient) { FactoryGirl.create(:userToReplyTo) }
@@ -18,7 +18,7 @@ require 'spec_helper'
       it "should create and show sent a DirectMessage" do
         expect { post_micropost direct_message  }.to change(DirectMessage, :count).by(1)
         visit sent_direct_messages_path
-        response.body.should include("Lorem ipsum") 
+        should have_text("Lorem ipsum") 
       end
 
     end
@@ -28,7 +28,7 @@ require 'spec_helper'
       it "should show recipient page a DirectMessage" do
       	expect { post_micropost direct_message  }.to change(DirectMessage, :count).by(1)
         visit received_direct_messages_path
-        response.body.should include("Lorem ipsum") 
+        should have_text("Lorem ipsum") 
       end
 
     end
@@ -37,7 +37,7 @@ require 'spec_helper'
 
       it "should not appear at the sender's received messages page" do
         visit sent_direct_messages_path
-        response.body.should_not include("Lorem ipsum") 
+        should_not have_text("Lorem ipsum") 
       end
 
     end
@@ -46,7 +46,7 @@ require 'spec_helper'
 
       it "should not appear at the recipient's sent messages page" do
         visit received_direct_messages_path
-        response.body.should_not include("Lorem ipsum") 
+        should_not have_text("Lorem ipsum") 
       end
 
     end
@@ -55,7 +55,7 @@ require 'spec_helper'
 
       it "should not appear at the recipient's sent messages page" do
         visit root_path
-        response.body.should_not include("Lorem ipsum") 
+        should_not have_text("Lorem ipsum") 
       end
 
     end

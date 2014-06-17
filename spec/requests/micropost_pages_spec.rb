@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe "Micropost pages" do
 
-  subject { response }
+  subject { page }
 
   let(:user) { FactoryGirl.create(:user) }
   before { sign_in user }
@@ -19,7 +19,7 @@ describe "Micropost pages" do
 
       describe "error messages" do
         before { click_button "Post" }
-        it {  response.body.should have_content('error') }
+        it {  should have_content('error') }
       end
     end
 
@@ -39,7 +39,7 @@ describe "Micropost pages" do
       before { visit root_path }
 
       it "should delete a micropost" do
-        expect { click_link "delete", :method => :delete }.to change(Micropost, :count).by(-1)  
+        expect { click_link "delete" }.to change(Micropost, :count).by(-1)  
       end
     end
   end

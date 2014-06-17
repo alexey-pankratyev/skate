@@ -35,12 +35,13 @@ group :production do
 end
 
 group :development, :test  do
- gem 'rspec-rails'
- gem 'guard-spork'
- gem 'spork'
- gem 'guard-rspec', '1.2.1'
+ gem 'rspec-rails', '2.13.1'
+ gem 'guard-spork', '1.5.0'
+ # gem 'spork', '0.9.0.rc8'
+ gem 'spork-rails', '4.0.0'
+ gem 'guard-rspec', '2.5.0'
  gem 'webrat'
- gem 'capybara', '1.1.2' 
+ gem 'capybara'
 end
 
 group :development do

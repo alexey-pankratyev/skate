@@ -1,7 +1,13 @@
 
 require 'rubygems'
 require 'spork'
-require 'factory_girl_rails'
+# require 'factory_girl_rails'
+require "webrat"
+require 'webrat/core/matchers'
+include Webrat::Methods
+
+
+
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However, 
   # if you change any configuration or code from libraries loaded here, you'll
@@ -9,11 +15,13 @@ Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
-  #require 'capybara/rails'
+  require 'capybara/rails'
   require 'rspec/autorun'
   # Requires supporting files with custom matchers and macros, etc,
   # in ./support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+  # ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
   RSpec.configure do |config|
     # == Mock Framework
@@ -23,8 +31,8 @@ Spork.prefork do
     # config.mock_with :mocha
     # config.mock_with :flexmock
     # config.mock_with :rr
-     
-    config.mock_with :rspec
+    
+    # config.mock_with :rspec
 
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -33,19 +41,21 @@ Spork.prefork do
     # instead of true.
     config.use_transactional_fixtures = true
     config.infer_base_class_for_anonymous_controllers = false
-    # def test_sign_in(user)
-    #    controller.sign_in(user)
-    # end
+
+    config.order = "random"
     
-    # def integration_sign_in(user)
-    #  visit signin_path
-    #  fill_in :email,    :with => user.email
-    #  fill_in :password, :with => user.password
-    #  click_button
-    # end
-  
+    config.include Capybara::DSL
+
+    Webrat.configure do |config| 
+     config.mode = :rack
+    end
+ 
+
   end
 end
+
+
+
 
 Spork.each_run do
 
