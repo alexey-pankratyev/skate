@@ -51,4 +51,11 @@ Myndozero::Application.configure do
   #   app.assets.logger = Logger.new('/dev/null')
   # end
   # config.reload_plugins = true
-end
+
+  
+  # configure ActionMailer
+   config.action_mailer.perform_deliveries = true
+   config.action_mailer.raise_delivery_errors = true
+
+ end
+

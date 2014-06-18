@@ -243,6 +243,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   libnotify (= 0.5.9)
+  mail
   nokogiri (~> 1.6.0)
   pg
   rails (= 3.2.13)

@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 ruby "1.9.3"  
 
 
+
+
+gem "mail"
+
 gem 'sprockets'
 gem 'launchy'
 #gem 'thin'
