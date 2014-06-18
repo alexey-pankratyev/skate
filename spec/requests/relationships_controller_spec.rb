@@ -7,7 +7,8 @@ describe RelationshipsController do
   let(:user) { FactoryGirl.create(:user) }
   let(:other_user) { FactoryGirl.create(:user) }
 
-  before { sign_in user }
+  before { sign_in user
+           cookies[:remember_token] = user.remember_token }
 
   describe "creating a relationship with Ajax" do
 
