@@ -96,7 +96,7 @@ describe "Users" do
     end
 
     
-    describe "with valid information" do
+    describe "with valid information", type: :mailer  do
 
       before do
         fill_in "Имя",          with: "Example User"
@@ -107,20 +107,23 @@ describe "Users" do
       end
 
       it "should create a user" do
+
         expect { click_button submit }.to change(User, :count).by(1)
       end
-
-      describe "after saving the user" do
+       
+      describe "after saving the user", type: :mailer  do
         before { click_button submit }
+
          let(:user) { User.find_by_email('user@example.com') }
-         
-         it { should have_selector('title', content: user.name) }
-         it { should have_selector('div.alert.alert-success', content: 'Welcome') }
+
+         it { should have_title(user.name) }
+         it { should have_content('Welcome') }
          it { should have_link('Выйти') }
 
-      end
 
+      end
     end
+
   end
 
   describe "direct_messages" do
