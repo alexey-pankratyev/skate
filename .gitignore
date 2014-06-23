@@ -21,3 +21,7 @@ doc/
 .DS_Store
 bundler_stubs/
 *.log
+
+# Ignore mail
+/config/initializers/mail.rb
+/app/mailers/user_mailer.rb
