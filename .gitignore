@@ -25,3 +25,4 @@ bundler_stubs/
 # Ignore mail
 /config/initializers/mail.rb
 /app/mailers/user_mailer.rb
+/spec/mailers/user_mailer_spec.rb
