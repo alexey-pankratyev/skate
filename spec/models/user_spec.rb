@@ -42,6 +42,7 @@ describe User do
     it { should respond_to(:follow!) }
     it { should respond_to(:unfollow!) }
     it { should respond_to(:replies) }
+    it { should respond_to(:follower_notifications) }
     it { should be_valid }
     it { should_not be_admin }
 
