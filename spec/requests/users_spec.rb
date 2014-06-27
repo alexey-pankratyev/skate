@@ -101,7 +101,7 @@ describe "Users" do
       before do
         fill_in "Имя",          with: "Example User"
         fill_in "Ник",          with: "Example"
-        fill_in "Мыло",         with: "user@example.com"
+        fill_in "Мыло",         with: "worksgo@yandex.ru"
         fill_in "Пароль",       with: "foobar"
         fill_in "Confirm Password", with: "foobar"
       end
@@ -115,7 +115,7 @@ describe "Users" do
       describe "after saving the user"  do
         before { click_button submit }
 
-         let(:user) { User.find_by_email('user@example.com') }
+         let(:user) { User.find_by_email('worksgo@yandex.ru') }
          let(:mail) { UserMailer.welcome_email(user).deliver }
 
          it { should have_title(user.name) }
@@ -127,7 +127,7 @@ describe "Users" do
          describe "Mailer" do
            before(:each) do
             ActionMailer::Base.delivery_method = :test
-            ActionMailer::Base.perform_deliveries = true  
+            # ActionMailer::Base.perform_deliveries = true  
             ActionMailer::Base.deliveries.clear
             mail 
            end

@@ -17,7 +17,7 @@
 
 class User < ActiveRecord::Base  
 
-    attr_accessible :name, :email, :password, :password_confirmation, :nickname
+    attr_accessible :name, :email, :password, :password_confirmation, :nickname, :follower_notifications
 
     has_secure_password
     has_many :microposts , dependent: :destroy
