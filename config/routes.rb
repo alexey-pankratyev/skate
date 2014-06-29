@@ -1,5 +1,7 @@
 Myndozero::Application.routes.draw do
 
+  get "password_resets/new"
+
   # get "direct_messages/new"
 
   #get "sessions/new"
@@ -38,6 +40,8 @@ Myndozero::Application.routes.draw do
   
     match '/signin',  :to => 'sessions#new'
     match '/signout', :to => 'sessions#destroy', via: :delete
+  
+  resources :password_resets
     
   
 

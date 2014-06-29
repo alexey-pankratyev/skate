@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140626102047) do
+ActiveRecord::Schema.define(:version => 20140629101530) do
 
   create_table "direct_messages", :force => true do |t|
     t.string   "content"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20140626102047) do
     t.string   "remember_token"
     t.string   "nickname"
     t.boolean  "follower_notifications", :default => true
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
