@@ -88,38 +88,63 @@ describe "Users" do
         it { should have_selector("div#error_explanation") }
         
       end
- 
-      it "should not create a user" do
+      
+       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
-      end
+       end
 
     end
 
     
-    describe "with valid information", type: :mailer  do
+    describe "with valid information"  do
 
       before do
         fill_in "Имя",          with: "Example User"
         fill_in "Ник",          with: "Example"
-        fill_in "Мыло",         with: "user@example.com"
+        fill_in "Мыло",         with: "worksgo@yandex.ru"
         fill_in "Пароль",       with: "foobar"
         fill_in "Confirm Password", with: "foobar"
       end
 
       it "should create a user" do
-
         expect { click_button submit }.to change(User, :count).by(1)
       end
-       
-      describe "after saving the user", type: :mailer  do
+      
+      
+
+      describe "after saving the user"  do
         before { click_button submit }
 
-         let(:user) { User.find_by_email('user@example.com') }
+         let(:user) { User.find_by_email('worksgo@yandex.ru') }
+         let(:mail) { UserMailer.welcome_email(user).deliver }
 
          it { should have_title(user.name) }
          it { should have_content('Welcome') }
          it { should have_link('Выйти') }
 
+         
+
+         describe "Mailer" do
+           before(:each) do
+            ActionMailer::Base.delivery_method = :test
+            # ActionMailer::Base.perform_deliveries = true  
+            ActionMailer::Base.deliveries.clear
+            mail 
+           end
+           
+           it "should create a mail" do
+             ActionMailer::Base.deliveries.count.should == 1 
+           end
+
+           it 'renders the subject' do
+            expect(mail.subject).to eql('Welcome to My Awesome Site')
+           end
+           
+           it 'renders the receiver email' do
+            ActionMailer::Base.deliveries.first.to.should == [user.email]
+           end
+           
+          end
 
       end
     end
