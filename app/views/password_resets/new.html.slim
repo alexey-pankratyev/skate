@@ -1,2 +1,12 @@
-h1 PasswordResets#new
-p Find me in app/views/password_resets/new.html.slim
+h1 Reset Password
+
+.row
+ div class="span6 offset3"
+      = form_tag password_resets_path, methods: "post"  do  
+        = label_tag 'email'
+        p 
+         = text_field_tag :email, params[:email] 
+        p align="center"  
+         = submit_tag "Reset Password", class: "btn btn-large btn-primary"     
+      end 
+       

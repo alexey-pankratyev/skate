@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
    
 
     before_save { email.downcase! }
-    before_save ( generate_token(:remember_token) }
+    before_save { generate_token(:remember_token) }
  
     email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i   
     validates :email, #presence: true,
