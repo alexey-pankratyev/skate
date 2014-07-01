@@ -296,3 +296,16 @@ aside {
    }
   
 }
+
+/* Password_reset */
+
+.leftstr {
+    float: left; /* Обтекание справа */ 
+    width: 90%; /* Ширина текстового блока */ 
+ }
+
+.rightstr {
+   float: left;
+   width: 10%;
+   text-align: right; /* Выравнивание по правому краю */ 
+ }

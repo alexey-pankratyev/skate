@@ -51,9 +51,12 @@ class User < ActiveRecord::Base
     
 
     validates :password, presence: true,
-               length: { within: 6..40 }
+              length: { within: 6..40 },
+              :unless => :password_is_not_being_updated?
 
-    validates :password_confirmation, presence: true 
+    validates :password_confirmation, presence: true,
+              :unless => :password_is_not_being_updated?
+
 
 
   def feed
@@ -80,7 +83,7 @@ class User < ActiveRecord::Base
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
     save!
-    UserMailer.remember_token(self).deliver
+    UserMailer.password_reset(self).deliver
   end
 
   private
@@ -91,8 +94,9 @@ class User < ActiveRecord::Base
      end while User.exists?(column => self[column])
     end
 
-    # def create_remember_token
-    #   self.remember_token = SecureRandom.urlsafe_base64
-    # end
+    def password_is_not_being_updated?
+       self.id && self.password.blank?
+    end
 
+  
 end
