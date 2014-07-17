@@ -192,9 +192,12 @@ describe "Users" do
     end
 
     describe "with invalid information" do
-      before { click_button "Save changes" }
+      before { cookies[:remember_token] = user.remember_token
+        click_button "Save changes" }
 
       it { should have_content('error') }
+      it { should have_selector("div#error_explanation") }
+
     end
 
     describe "with valid information" do

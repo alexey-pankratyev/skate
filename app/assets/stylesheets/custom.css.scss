@@ -4,6 +4,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$purpleLight: #7b2286;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -300,12 +301,22 @@ aside {
 /* Password_reset */
 
 .leftstr {
+   
+    height: 50px;
     float: left; /* Обтекание справа */ 
-    width: 90%; /* Ширина текстового блока */ 
+    width: 97%; /* Ширина текстового блока */ 
+
  }
 
+.colortext {
+     font:  110% Arial;
+     # font-style: oblique;
+     color: $purpleLight; 
+   }
+
 .rightstr {
+   text-align: right; 
    float: left;
-   width: 10%;
-   text-align: right; /* Выравнивание по правому краю */ 
+   width: 3%;
+   
  }

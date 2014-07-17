@@ -1,0 +1,23 @@
+
+ <%= render 'shared/error_messages', :object => f.object %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :nickname %>
+      <%= f.text_field :nickname %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.password_field :password_confirmation %>
+
+      
+       <%= f.label :follower_notifications, "Выслать сообщение на email, когда появляеться новый подписчик ?", class: "leftstr colortext" %> 
+
+      <%= f.check_box :follower_notifications, class: "rightstr"%>
+    
