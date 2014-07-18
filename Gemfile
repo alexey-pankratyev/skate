@@ -50,6 +50,7 @@ group :development do
 end
 
 group :test do
+  gem 'selenium-webdriver', '2.35.1'
  gem 'rb-inotify'
  gem 'libnotify', '0.5.9'
  gem 'factory_girl_rails', '4.1.0'

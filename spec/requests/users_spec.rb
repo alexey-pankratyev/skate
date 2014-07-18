@@ -8,6 +8,10 @@ describe "Users" do
 
  subject { page }
 
+  before(:each) do
+   ActionMailer::Base.delivery_method = :test
+  end 
+
   describe "index" do
 
     let(:user) { FactoryGirl.create(:user) }
@@ -121,18 +125,12 @@ describe "Users" do
          it { should have_title(user.name) }
          it { should have_content('Welcome') }
          it { should have_link('Выйти') }
-
-         
-
-         describe "Mailer" do
-           before(:each) do
-            ActionMailer::Base.delivery_method = :test
-            # ActionMailer::Base.perform_deliveries = true  
-            ActionMailer::Base.deliveries.clear
-            mail 
-           end
-           
+        
+          describe "Mailer" do
+                             
            it "should create a mail" do
+             ActionMailer::Base.deliveries.clear
+             mail
              ActionMailer::Base.deliveries.count.should == 1 
            end
 
@@ -141,7 +139,7 @@ describe "Users" do
            end
            
            it 'renders the receiver email' do
-            ActionMailer::Base.deliveries.first.to.should == [user.email]
+            expect(mail.to).to eql([user.email])
            end
            
           end
@@ -178,7 +176,7 @@ describe "Users" do
 
   end
 
-  describe "edit" do
+  describe "edit"  do
     let(:user) { FactoryGirl.create(:user) }
     before { 
        sign_in user
@@ -192,8 +190,8 @@ describe "Users" do
     end
 
     describe "with invalid information" do
-      before { cookies[:remember_token] = user.remember_token
-        click_button "Save changes" }
+    
+      before { click_button "Save changes" }
 
       it { should have_content('error') }
       it { should have_selector("div#error_explanation") }

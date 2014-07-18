@@ -32,10 +32,10 @@ class User < ActiveRecord::Base
    
 
     before_save { email.downcase! }
-    before_save { generate_token(:remember_token) }
- 
+    # before_save { generate_token(:remember_token) }
+    before_save :create_remember_token
     email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i   
-    validates :email, #presence: true,
+    validates :email, presence: true,
              format: { with: email_regex },
              uniqueness:  { case_sensitive: false }
 
@@ -52,10 +52,10 @@ class User < ActiveRecord::Base
 
     validates :password, presence: true,
               length: { within: 6..40 },
-              :unless => :password_is_not_being_updated?
+               unless:  :password_is_not_being_updated?
 
     validates :password_confirmation, presence: true,
-              :unless => :password_is_not_being_updated?
+               unless: :password_is_not_being_updated?
 
 
 
@@ -88,6 +88,10 @@ class User < ActiveRecord::Base
 
   private
 
+    def create_remember_token
+       self.remember_token = SecureRandom.urlsafe_base64
+    end
+    
     def generate_token(column)
       begin
         self[column] = SecureRandom.urlsafe_base64
