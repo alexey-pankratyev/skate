@@ -51,11 +51,11 @@ class User < ActiveRecord::Base
     
 
     validates :password, presence: true,
-              length: { within: 6..40 },
-               unless:  :password_is_not_being_updated?
+              length: { within: 6..40 }
+               # unless:  :password_is_not_being_updated?
 
-    validates :password_confirmation, presence: true,
-               unless: :password_is_not_being_updated?
+    validates :password_confirmation, presence: true
+               # unless: :password_is_not_being_updated?
 
 
 
@@ -82,7 +82,7 @@ class User < ActiveRecord::Base
   def send_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
-    save!
+    save!(validate: false)
     UserMailer.password_reset(self).deliver
   end
 
