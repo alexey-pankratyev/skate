@@ -1,6 +1,6 @@
 Myndozero::Application.routes.draw do
 
-  get "password_resets/new"
+  # get "password_resets/new"
 
   # get "direct_messages/new"
 
