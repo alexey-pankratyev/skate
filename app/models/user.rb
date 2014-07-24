@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   # include ActiveRecord::Transitions 
 
     attr_accessible :name, :email, :password, :password_confirmation, :nickname, :follower_notifications, :password_reset_token, :state
-
+   
     has_secure_password
     has_many :microposts , dependent: :destroy
     has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -59,16 +59,22 @@ class User < ActiveRecord::Base
     validates :password_confirmation, presence: true
                # unless: :password_is_not_being_updated?
 
-  state_machine :state do
-    state :inactive
-    state :active
-
+  state_machine :state, initial: :inactive do
     event :activate do
-      transition :active => :inactive
+      transition :inactive => :active
     end
+
+    state :active do 
+      validates_presence_of  :password
+      validates_presence_of  :password_confirmation
+    end
+
+    state :inactive do 
+      validates_presence_of  :password
+      validates_presence_of  :password_confirmation
+    end
+
   end
-
-
 
   def feed
      Micropost.from_users_followed_by_including_replies(self) 
@@ -95,6 +101,11 @@ class User < ActiveRecord::Base
     self.password_reset_sent_at = Time.zone.now
     save!(validate: false)
     UserMailer.password_reset(self).deliver
+  end
+
+  def confirmate
+     self.state_event = "activate"
+     save!(validate: false)
   end
 
   private

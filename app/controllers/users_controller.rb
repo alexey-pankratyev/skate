@@ -2,7 +2,7 @@
 # encoding: utf-8
  class UsersController < ApplicationController
   
- before_filter :signed_in_user, only: [:show, :index, :edit, :update, :destroy, :following, :followers, :confirm ]
+ before_filter :signed_in_user, only: [:show, :index, :edit, :update, :destroy, :following, :followers ]
  before_filter :correct_user,   only: [:edit, :update]
  before_filter :admin_user,     only: :destroy
  
@@ -26,7 +26,7 @@
      @user = User.new(params[:user]) 
     if @user.save
      UserMailer.signup_confirmation(host: request.env['HTTP_HOST'],
-        remember_token: @user.remember_token, email: @user.email).deliver
+        token: @user.id, email: @user.email).deliver
       flash[:notice] = "To complete registration, please check your email."
       redirect_to signin_path
     else
@@ -39,12 +39,12 @@
    
   def confirm
     begin
-      @user = User.find_by_remember_token(params[:remember_token])
-      user.activate!
+      @user = User.find(params[:id])
+      @user.confirmate
       sign_in @user 
       flash[:success] = "Account confirmed. Welcome #{@user.name}!"
       redirect_to @user
-      userMailer.welcome_email(@user).deliver
+      UserMailer.welcome_email(@user).deliver
     # rescue Transitions::InvalidTransition
     #   sign_out if signed_in?
     #   flash[:notice] = "Account is already activated. Please sign in instead."
