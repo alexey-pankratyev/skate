@@ -10,11 +10,12 @@
 
  def make_users 
     Rake::Task['db:reset'].invoke
-    admin = User.create!(:name => "Alexey",
-                 :nickname => "rezter",
-                 :email => "alexey.pankratev@gmail.com",
-                 :password => "foobar",
-                 :password_confirmation => "foobar")
+    admin = User.create!(name: "Alexey",
+                 nickname: "rezter",
+                 email: "alexey.pankratev@gmail.com",
+                 password: "foobar",
+                 password_confirmation: "foobar",
+                 state: "active")
     admin.toggle!(:admin)
  
     99.times do |n|
@@ -26,7 +27,8 @@
                    nickname: nickname,
                    email: email,
                    password: password,
-                   password_confirmation: password)
+                   password_confirmation: password,
+                   state: "active")
     end
  end
 

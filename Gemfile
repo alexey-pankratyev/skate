@@ -22,6 +22,8 @@ gem 'russian', '~> 0.6.0'
 gem 'nokogiri', '~> 1.6.0'
 gem 'state_machine'
 gem 'ruby-graphviz'
+gem 'transitions', :require => ['transitions', 'active_record/transitions']
+ 
 
 group :production do
 

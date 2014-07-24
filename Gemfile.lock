@@ -214,6 +214,7 @@ GEM
     thor (0.19.1)
     tilt (1.4.1)
     timers (1.1.0)
+    transitions (0.1.12)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -266,6 +267,7 @@ DEPENDENCIES
   spork (= 0.9.2)
   sprockets
   state_machine
+  transitions
   uglifier
   webrat
   will_paginate

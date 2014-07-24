@@ -15,9 +15,11 @@
 #
 
 
-class User < ActiveRecord::Base  
+class User < ActiveRecord::Base 
+  
+  # include ActiveRecord::Transitions 
 
-    attr_accessible :name, :email, :password, :password_confirmation, :nickname, :follower_notifications, :password_reset_token
+    attr_accessible :name, :email, :password, :password_confirmation, :nickname, :follower_notifications, :password_reset_token, :state
 
     has_secure_password
     has_many :microposts , dependent: :destroy
@@ -56,6 +58,15 @@ class User < ActiveRecord::Base
 
     validates :password_confirmation, presence: true
                # unless: :password_is_not_being_updated?
+
+  state_machine :state do
+    state :inactive
+    state :active
+
+    event :activate do
+      transition :active => :inactive
+    end
+  end
 
 
 

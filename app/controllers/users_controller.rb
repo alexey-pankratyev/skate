@@ -2,7 +2,7 @@
 # encoding: utf-8
  class UsersController < ApplicationController
   
- before_filter :signed_in_user, only: [:show, :index, :edit, :update, :destroy, :following, :followers ]
+ before_filter :signed_in_user, only: [:show, :index, :edit, :update, :destroy, :following, :followers, :confirm ]
  before_filter :correct_user,   only: [:edit, :update]
  before_filter :admin_user,     only: :destroy
  
@@ -25,16 +25,34 @@
   def create 
      @user = User.new(params[:user]) 
     if @user.save
-     sign_in @user
-     flash[:success] = "Welcome"
-     redirect_to @user
-     UserMailer.welcome_email(@user).deliver
+     UserMailer.signup_confirmation(host: request.env['HTTP_HOST'],
+        remember_token: @user.remember_token, email: @user.email).deliver
+      flash[:notice] = "To complete registration, please check your email."
+      redirect_to signin_path
     else
      @title = "Sign up"
      @user.password.clear
      @user.password_confirmation.clear
      render 'new'
      end
+  end
+   
+  def confirm
+    begin
+      @user = User.find_by_remember_token(params[:remember_token])
+      user.activate!
+      sign_in @user 
+      flash[:success] = "Account confirmed. Welcome #{@user.name}!"
+      redirect_to @user
+      userMailer.welcome_email(@user).deliver
+    # rescue Transitions::InvalidTransition
+    #   sign_out if signed_in?
+    #   flash[:notice] = "Account is already activated. Please sign in instead."
+    #   redirect_to signin_path
+    rescue
+      flash[:error] = "Invalid confirmation token."
+      redirect_to root_url
+    end
   end
 
   def edit
@@ -51,7 +69,7 @@
     else
       render 'edit'
     end    
-   end
+  end
  
   def destroy
     user = User.find(params[:id])
