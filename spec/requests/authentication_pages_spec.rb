@@ -5,7 +5,14 @@ require 'spec_helper'
 
 describe "Authentication" do
 
+
   subject { page }
+
+  before(:each) do
+     ActionMailer::Base.delivery_method = :test
+     # ActionMailer::Base.perform_deliveries = true  
+     ActionMailer::Base.deliveries.clear
+  end
 
   describe "signin page" do
     before { visit signin_path }  

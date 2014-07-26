@@ -7,6 +7,12 @@ require 'spec_helper'
   let(:sender) { FactoryGirl.create(:userToReplyTo) }
   let(:recipient) { FactoryGirl.create(:userToReplyTo) }
 
+   before(:each) do
+     ActionMailer::Base.delivery_method = :test
+     # ActionMailer::Base.perform_deliveries = true  
+     ActionMailer::Base.deliveries.clear
+   end
+
   describe "DirectMessage creation" do
 
    	before { sign_in sender }

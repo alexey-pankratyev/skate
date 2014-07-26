@@ -22,6 +22,12 @@ describe User do
               password: "foobar", password_confirmation: "foobar") }
     subject { @user }
 
+    before(:each) do
+     ActionMailer::Base.delivery_method = :test
+     # ActionMailer::Base.perform_deliveries = true  
+     ActionMailer::Base.deliveries.clear
+   end
+
 
     it { should respond_to(:name) }
     it { should respond_to(:email) }
@@ -43,6 +49,7 @@ describe User do
     it { should respond_to(:unfollow!) }
     it { should respond_to(:replies) }
     it { should respond_to(:follower_notifications) }
+    it { should respond_to(:state) }
     it { should be_valid }
     it { should_not be_admin }
 
@@ -329,5 +336,15 @@ describe User do
        @reply_to_user.replies.should == [m]
      end
   end
+
+
+   describe "#activate!" do
+     let(:user) { FactoryGirl.create(:user) }
+     it "should change the user's state from inactive to active" do
+       user.state = "inactive" # manually set user's state to inactive first
+       user.activate!
+       user.reload.state.should == "active"
+     end
+   end
  
 end

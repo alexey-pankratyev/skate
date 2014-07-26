@@ -18,6 +18,12 @@ describe Micropost do
   before { @micropost = user.microposts.build(content: "Lorem ipsum") }
 
   subject { @micropost }
+  
+  before(:each) do
+     ActionMailer::Base.delivery_method = :test
+     # ActionMailer::Base.perform_deliveries = true  
+     ActionMailer::Base.deliveries.clear
+  end
 
   it { should respond_to(:content) }
   it { should respond_to(:user_id) }

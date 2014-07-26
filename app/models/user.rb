@@ -17,7 +17,7 @@
 
 class User < ActiveRecord::Base 
   
-  # include ActiveRecord::Transitions 
+    # include ActiveRecord::Transitions 
 
     attr_accessible :name, :email, :password, :password_confirmation, :nickname, :follower_notifications, :password_reset_token, :state
    

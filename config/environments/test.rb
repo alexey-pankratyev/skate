@@ -41,6 +41,8 @@ Myndozero::Application.configure do
     BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
   end
 
+  config.action_mailer.delivery_method = :test
+
   # configure ActionMailer
   # config.action_mailer.perform_deliveries = true
   # config.action_mailer.raise_delivery_errors = true

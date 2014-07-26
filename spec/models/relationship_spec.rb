@@ -19,6 +19,12 @@ describe Relationship do
 
   subject { relationship }
 
+  before(:each) do
+     ActionMailer::Base.delivery_method = :test
+     # ActionMailer::Base.perform_deliveries = true  
+     ActionMailer::Base.deliveries.clear
+  end
+
   it { should be_valid }
 
   describe "accessible attributes" do

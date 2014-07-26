@@ -45,10 +45,10 @@
       flash[:success] = "Account confirmed. Welcome #{@user.name}!"
       redirect_to @user
       UserMailer.welcome_email(@user).deliver
-    # rescue Transitions::InvalidTransition
-    #   sign_out if signed_in?
-    #   flash[:notice] = "Account is already activated. Please sign in instead."
-    #   redirect_to signin_path
+    rescue Transitions::InvalidTransition
+      sign_out if signed_in?
+      flash[:notice] = "Account is already activated. Please sign in instead."
+      redirect_to signin_path
     rescue
       flash[:error] = "Invalid confirmation token."
       redirect_to root_url

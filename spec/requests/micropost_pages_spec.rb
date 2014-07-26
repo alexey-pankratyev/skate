@@ -6,6 +6,13 @@ describe "Micropost pages" do
   subject { page }
 
   let(:user) { FactoryGirl.create(:user) }
+
+  before(:each) do
+     ActionMailer::Base.delivery_method = :test
+     # ActionMailer::Base.perform_deliveries = true  
+     ActionMailer::Base.deliveries.clear
+  end
+
   before { sign_in user }
 
   describe "micropost creation" do

@@ -58,7 +58,6 @@ describe "Users" do
         it { should_not have_link('delete', href: user_path(admin)) }
       end
     end
-    
   end
 
 
@@ -108,41 +107,65 @@ describe "Users" do
         fill_in "Мыло",         with: "worksgo@yandex.ru"
         fill_in "Пароль",       with: "foobar"
         fill_in "Confirm Password", with: "foobar"
+
       end
 
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
+        
       end
       
       
 
       describe "after saving the user"  do
-        before { click_button submit }
-
-         let(:user) { User.find_by_email('worksgo@yandex.ru') }
-         let(:mail) { UserMailer.welcome_email(user).deliver }
-
-         it { should have_title(user.name) }
-         it { should have_content('Welcome') }
-         it { should have_link('Выйти') }
         
-          describe "Mailer" do
-                             
-           it "should create a mail" do
-             ActionMailer::Base.deliveries.clear
-             mail
-             ActionMailer::Base.deliveries.count.should == 1 
-           end
+        before do
+          click_button submit
+        end
+                     
+        let(:user) { User.find_by_email('worksgo@yandex.ru') }
+        let(:mail) { UserMailer.welcome_email(user).deliver }
+        
+        
+        describe "When the user is in the active state" do
+         it { user.state.should == "inactive" } 
+         it { should have_content("To complete registration, please check your") }
+        end
 
-           it 'renders the subject' do
-            expect(mail.subject).to eql('Welcome to My Awesome Site')
-           end
-           
-           it 'renders the receiver email' do
-            expect(mail.to).to eql([user.email])
-           end
-           
+        describe "When the user is in the active state" do
+         
+          before(:each) do
+           user.confirmate
+           visit signin_path
+           fill_in "Email",    with: "worksgo@yandex.ru"
+           fill_in "Password", with: "foobar"
+           click_button "Sign in"              
           end
+          
+          it { user.state.should == "active" }
+          it { should have_selector('title', content: 'Example User') }
+          it { should have_title(user.name) }
+          it { should have_link('Выйти') }
+
+        end
+
+        describe "Mailer" do
+                             
+         it "should create a mail" do
+           ActionMailer::Base.deliveries.clear
+           mail
+           ActionMailer::Base.deliveries.count.should == 1 
+         end
+
+         it 'renders the subject' do
+            expect(mail.subject).to eql('Welcome to My Awesome Site')
+         end
+           
+         it 'renders the receiver email' do
+           expect(mail.to).to eql([user.email])
+         end
+           
+        end
 
       end
     end

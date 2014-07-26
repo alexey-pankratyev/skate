@@ -22,6 +22,12 @@ describe DirectMessage do
    @direct_message = DirectMessage.create!( sender_id: sender.id, recipient_id: recipient.id, content: 'some content')
   }
 
+  before(:each) do
+     ActionMailer::Base.delivery_method = :test
+     # ActionMailer::Base.perform_deliveries = true  
+     ActionMailer::Base.deliveries.clear
+  end
+
    subject { @direct_message }
   
   it { should be_valid }

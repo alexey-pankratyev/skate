@@ -6,6 +6,12 @@ describe RelationshipsController do
   
   let(:user) { FactoryGirl.create(:user) }
   let(:other_user) { FactoryGirl.create(:user) }
+  
+  before(:each) do
+     ActionMailer::Base.delivery_method = :test
+     # ActionMailer::Base.perform_deliveries = true  
+     ActionMailer::Base.deliveries.clear
+  end
 
   before { sign_in user
            cookies[:remember_token] = user.remember_token }
