@@ -2,7 +2,7 @@
 # encoding: utf-8
  class UsersController < ApplicationController
   
- before_filter :signed_in_user, only: [:show, :index, :edit, :update, :destroy, :following, :followers ]
+ before_filter :signed_in_user, only: [:show, :index, :edit, :update, :destroy, :following, :followers, :feed ]
  before_filter :correct_user,   only: [:edit, :update]
  before_filter :admin_user,     only: :destroy
  
@@ -15,6 +15,12 @@
       @user = User.find(params[:id])
       @microposts = @user.microposts.paginate(page: params[:page])
       @title = @user.name
+      
+      respond_to do |extension|
+        extension.html
+        extension.rss { render layout: false }
+      end
+
    end
   
    def new
@@ -95,6 +101,15 @@
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
+  end
+
+  def feed
+    @user = User.find( params[:id] )
+    @microposts = @user.microposts.limit(10)
+
+    respond_to do |extension|
+      extension.rss { render layout: false}
+    end
   end
 
  private

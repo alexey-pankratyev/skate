@@ -33,7 +33,7 @@ Myndozero::Application.routes.draw do
   resources :users do
     member do
       get :following, :followers
-      get :confirm
+      get :confirm, :feed
     end
   end
   

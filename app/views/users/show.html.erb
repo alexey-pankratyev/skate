@@ -9,6 +9,9 @@
     </section>
     <section>
       <%= render 'shared/stats' %>
+      <br/> 
+      <%= image_tag('rss.gif', alt: 'rss feed icon') %>
+      <%= link_to "Подписаться", feed_user_path(@user, format: :rss) %>
     </section>
   </aside>
   <div class="span8">
