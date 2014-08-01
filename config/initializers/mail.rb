@@ -8,12 +8,13 @@
 # }
  ActionMailer::Base.delivery_method = :smtp
  ActionMailer::Base.smtp_settings  = {
-  address:              'smtp.gmail.com',
-  port:                 587,
-  domain:               'alexey.pankratev@gmail.com',
-  user_name:            'alexey.pankratev',
+  address:              'smtp.yandex.com',
+  port:                 465,
+  domain:               'worksgo@yandex.ru',
+  user_name:            'worksgo',
   password:             ENV['SMTP_PASSWORD'],
-  authentication:       'plain'
+  authentication:       'plain',
+  enable_starttls_auto: true
    } 
 # ActionMailer::Base.default_url_options[:host] = "localhost:3000"
 Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development? or Rails.env.production? 
