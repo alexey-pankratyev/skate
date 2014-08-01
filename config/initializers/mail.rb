@@ -9,7 +9,7 @@
  ActionMailer::Base.delivery_method = :smtp
  ActionMailer::Base.smtp_settings  = {
   address:              'smtp.yandex.com',
-  port:                 465,
+  port:                 25,
   domain:               'worksgo@yandex.ru',
   user_name:            'worksgo',
   password:             ENV['SMTP_PASSWORD'],
