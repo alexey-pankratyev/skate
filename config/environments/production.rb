@@ -64,11 +64,10 @@ Myndozero::Application.configure do
   #mailers
  config.action_mailer.delivery_method = :smtp
  config.action_mailer.smtp_settings = {
- address:              'smtp.gmail.com',
+  address:              'smtp.gmail.com',
   port:                 587,
   domain:               'alexey.pankratev@gmail.com',
   user_name:            'alexey.pankratev',
-  password:             'foot6good',
   authentication:       'plain',
   enable_starttls_auto: true ,
   password: ENV['SMTP_PASSWORD'],
