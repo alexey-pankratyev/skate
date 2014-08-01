@@ -23,6 +23,7 @@ bundler_stubs/
 *.log
 
 # Ignore mail
+/vendor/*.*
 config/initializers/mail.rb
 app/mailers/user_mailer.rb
 spec/mailers/user_mailer_spec.rb
