@@ -6,14 +6,16 @@
 #   :password       => ENV['SENDGRID_PASSWORD'],
 #   :domain         => 'heroku.com'
 # }
+ require 'tlsmail'
+ Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
  ActionMailer::Base.delivery_method = :smtp
  ActionMailer::Base.smtp_settings  = {
   address:              'smtp.yandex.com',
-  port:                 25,
+  port:                 587,
   domain:               'worksgo@yandex.ru',
   user_name:            'worksgo',
   password:             ENV['SMTP_PASSWORD'],
-  authentication:       'plain',
+  authentication:       :login,
   enable_starttls_auto: true
    } 
 # ActionMailer::Base.default_url_options[:host] = "localhost:3000"
