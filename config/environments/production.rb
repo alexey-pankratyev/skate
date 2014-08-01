@@ -60,6 +60,8 @@ Myndozero::Application.configure do
   config.i18n.fallbacks = true
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :silence #:notify
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
