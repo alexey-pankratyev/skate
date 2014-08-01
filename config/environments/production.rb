@@ -62,8 +62,8 @@ Myndozero::Application.configure do
   config.active_support.deprecation = :silence #:notify
  
   
-  config.action_mailer.default_url_options = { host: "localhost:80" }
-  ActionMailer::Base.smtp_settings[:enable_starttls_auto] = false
+  # config.action_mailer.default_url_options = { host: "localhost:80" }
+  # ActionMailer::Base.smtp_settings[:enable_starttls_auto] = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
