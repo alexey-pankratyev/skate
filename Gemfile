@@ -26,7 +26,7 @@ gem 'transitions', :require => ['transitions', 'active_record/transitions']
  
 
 group :production do
-
+gem 'rails_12factor'
 # gem 'pg'
 end
 
