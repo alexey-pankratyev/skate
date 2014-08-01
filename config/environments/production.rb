@@ -63,6 +63,7 @@ Myndozero::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: "localhost:80" }
+  ActionMailer::Base.smtp_settings[:enable_starttls_auto] = false
 
 
   # Log the query plan for queries taking more than this (works
