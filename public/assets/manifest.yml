@@ -7,10 +7,12 @@ onegasity.jpg: onegasity-68b2ba1d30fbd138114a6b140b43b533.jpg
 onegasity/index.jpg: onegasity-68b2ba1d30fbd138114a6b140b43b533.jpg
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
-application.js: application-0df7e317a517ecf5f247cb23d1fe6181.js
-application/index.js: application-0df7e317a517ecf5f247cb23d1fe6181.js
-application.css: application-c94a75b2ee406c570ae898493424377f.css
-application/index.css: application-c94a75b2ee406c570ae898493424377f.css
+rss.gif: rss-e698cf1b6862f91016ff680f0c1a01a7.gif
+rss/index.gif: rss-e698cf1b6862f91016ff680f0c1a01a7.gif
+application.js: application-e53c7779664d78870035464615b08639.js
+application/index.js: application-e53c7779664d78870035464615b08639.js
+application.css: application-39350b7eaa9815727e5781ee6bda49df.css
+application/index.css: application-39350b7eaa9815727e5781ee6bda49df.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
