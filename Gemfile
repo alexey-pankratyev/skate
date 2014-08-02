@@ -26,6 +26,7 @@ gem 'transitions', :require => ['transitions', 'active_record/transitions']
 gem 'tlsmail'
 
 group :production do
+gem 'postmark-rails'
 gem 'rails_12factor'
 # gem 'pg'
 end

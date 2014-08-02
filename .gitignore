@@ -21,7 +21,7 @@ doc/
 .DS_Store
 bundler_stubs/
 *.log
-
-# Ignore mail
 /vendor/*.*
+# Ignore mail
+
 
