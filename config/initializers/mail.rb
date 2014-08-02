@@ -10,7 +10,7 @@
  ActionMailer::Base.smtp_settings  = {
   address:              'smtp.gmail.com',
   port:                 587,
-  domain:               'heroku.com',
+  domain:               'alexey.pankratev@gmail.com',
   user_name:            'alexey.pankratev',
   password:             ENV['SMTP_PASSWORD'],
   authentication:       'plain',
