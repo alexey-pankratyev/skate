@@ -72,6 +72,7 @@ Myndozero::Application.configure do
    password: ENV['POSTMARK_API_KEY'],
    domain: 'mynda.heroku.com',
    authentication: :plain,
+   enable_starttls_auto: true
   }
   
   # Log the query plan for queries taking more than this (works

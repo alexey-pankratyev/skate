@@ -22,6 +22,7 @@ doc/
 bundler_stubs/
 *.log
 /vendor/*.*
+vendor/bundle
 # Ignore mail
 
 
