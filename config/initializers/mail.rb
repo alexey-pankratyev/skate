@@ -6,7 +6,9 @@
 #   :password       => ENV['SENDGRID_PASSWORD'],
 #   :domain         => 'heroku.com'
 # }
- ActionMailer::Base.delivery_method = :smtp
+require “smtp_tls”
+
+ # ActionMailer::Base.delivery_method = :smtp
  ActionMailer::Base.smtp_settings  = {
   address:              'smtp.gmail.com',
   port:                 587,
