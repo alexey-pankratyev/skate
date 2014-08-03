@@ -25,7 +25,7 @@
   port:                 587,
   domain:               'tensor.ru',
   user_name:            'av.pankratev@tensor.ru',
-  password:             'hudCkzW3',
+  password:              ENV['SMTP_PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto: true  } 
 
