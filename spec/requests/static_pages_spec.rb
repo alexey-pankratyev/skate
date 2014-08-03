@@ -82,6 +82,8 @@ describe "Static pages" do
          end
       end
 
+      
+
       it "should show the nicks" do
            user.feed[1..28].each do |item|
              should have_selector("li##{item.id}", content: item.user.handle)

@@ -49,7 +49,7 @@ describe "Users" do
           sign_in admin
           visit users_path
         end
-
+        
         it { should have_link('delete', href: user_path(User.first)) }
         it "should be able to delete another user" do
            expect do click_link('delete', match: :first)
@@ -147,7 +147,30 @@ describe "Users" do
           it { should have_title(user.name) }
           it { should have_link('Выйти') }
 
+         describe "GET 'feed'" do
+          
+          it "should show an rss feed with 10 microposts of the user in question" do
+           11.times { |i| user.microposts.create!(content: "micropost #{i+1}") }
+           visit feed_user_path(user, format: :rss)
+ 
+           10.times do |n|
+           # search for contents "micropost 11" to "micropost 2" because
+           # micropost is queried from the latest (i.e. micropost 11)
+           page.should have_selector("title", content: "micropost #{n+2}")
+           end
+           # response should not contain the earliest micropost (i.e. micropost 1)
+           response.should_not contain(/^micropost 1$/)
+          end
+ 
+          it "should be accessible even if the user is not logged in" do
+            visit feed_user_path(user, format: :rss)
+            page.should_not have_content_h1_title('Sign in') 
+          end
+         end
+
         end
+        
+        
 
         describe "Mailer" do
                              
@@ -252,10 +275,16 @@ describe "Users" do
     before { sign_in user
              visit user_path(user) }
 
+
+
     it { should have_selector('h1',    content: user.name) }
     it { should have_selector('title', content: user.name) }
     it { should have_selector('span',  content: user.handle)}
-
+    
+    it "should have a link to the feed-rss of the current user being shown" do
+       page.should have_selector("a", href: feed_user_path(user, format: :rss))
+    end
+    
     describe "microposts" do
       it { should have_content(m1.content) }
       it { should have_content(m2.content) }
