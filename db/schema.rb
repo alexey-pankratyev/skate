@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20140723221913) do
     t.string   "email"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+    t.string   "salt"
     t.boolean  "admin",                  :default => false
     t.string   "password_digest"
     t.string   "remember_token"

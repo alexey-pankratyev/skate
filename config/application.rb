@@ -78,8 +78,8 @@ module Myndozero
     # config.assets.precompile << /(^[^_\/]|\/[^_])[^\/]*$/
     config.assets.compile = true
 
-    config.action_mailer.delivery_method   = :postmark
-    config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
+    # config.action_mailer.delivery_method   = :postmark
+    # config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
     
   end
 end

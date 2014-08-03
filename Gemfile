@@ -23,7 +23,7 @@ gem 'nokogiri', '~> 1.6.0'
 gem 'state_machine'
 gem 'ruby-graphviz'
 gem 'transitions', :require => ['transitions', 'active_record/transitions']
-gem 'tlsmail'
+# gem 'tlsmail'
 
 group :production do
 gem 'postmark-rails'

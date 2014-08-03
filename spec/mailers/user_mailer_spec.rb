@@ -23,14 +23,14 @@ describe UserMailer do
        end
 
        it 'renders the sender email' do
-         expect(mail.from).to eql(['alexey.pankratev@gmail.com'])
+         expect(mail.from).to  contain(/"alexey.pankratev@gmail"|"av.pankratev@tensor.ru"/)
        end
         
 
-        # it 'assigns @name' do
-        #   email_body = UserMailer.welcome_email(user).deliver.body.encoded
-        #   email_body.should match( "#{user.name}" )
-        # end
+      # it 'assigns @name' do
+      #   email_body = UserMailer.welcome_email(user).deliver.body.encoded
+      #   email_body.should match( "#{user.name}" )
+      # end
  
        # it 'assigns @confirmation_url' do
        #   expect(mail.last.body.encoded).to match("https://mynda.herokuapp.com/, #{user.name} !")
