@@ -3,7 +3,7 @@
 
 class UserMailer < ActionMailer::Base
 	
-  default from: "alexey.pankratev@gmail.com"
+  default from: "av.pankratev@tensor.ru"
 
   def welcome_email(user) 
     @user = user
