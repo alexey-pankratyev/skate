@@ -24,6 +24,8 @@ gem 'state_machine'
 gem 'ruby-graphviz'
 gem 'transitions', :require => ['transitions', 'active_record/transitions']
 # gem 'tlsmail'
+gem 'mysql2',          '~> 0.3.12b5', :platform => :ruby
+gem 'thinking-sphinx', '~>  3.1.0'
 
 group :production do
 gem 'postmark-rails'

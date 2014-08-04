@@ -8,7 +8,7 @@
  
    def index 
       @title = "All users"
-      @users = User.paginate(page: params[:page])
+      @users = params[:query].blank? ? User.paginate(page: params[:page]) : User.search(params[:query]).paginate(page: params[:page])
    end
 
    def show
