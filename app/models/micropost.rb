@@ -12,6 +12,8 @@
 
 class Micropost < ActiveRecord::Base
   
+  include PgSearch
+
   @@reply_to_regexp = /\A@([^\s]*)/
 
   attr_accessible :content, :to
@@ -34,6 +36,8 @@ class Micropost < ActiveRecord::Base
 
   
   before_save :extract_in_reply_to
+
+ 
 
   # Return microposts from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }

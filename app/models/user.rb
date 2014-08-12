@@ -16,7 +16,11 @@
 
 
 class User < ActiveRecord::Base 
-  
+    
+    include PgSearch
+
+    pg_search_scope :search_full_name, against: [:name, :email, :nickname]
+
     # include ActiveRecord::Transitions 
 
     attr_accessible :name, :email, :password, :password_confirmation, :nickname, :follower_notifications, :password_reset_token, :state
