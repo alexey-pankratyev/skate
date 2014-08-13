@@ -7,5 +7,12 @@
      section
       = render 'shared/micropost_form' 
     .span8
-      h3 Микропосты 
+      h3 Микропосты
+      / div class="row"
+      /  div class="span6 "
+      /   = form_tag root_path, method: :get do 
+      /     = label_tag 'query', 'Поиск по  имени, email, нику, контенту микропоста - пользователя!!!', class: "colortext" 
+      /     = text_field_tag 'query'  
+      /     = submit_tag 'Go', class: "btn btn-large btn-primary rightstr"  
+      / br    
       = render 'shared/feed'   

@@ -13,7 +13,12 @@
 class Micropost < ActiveRecord::Base
   
   include PgSearch
+  pg_search_scope :search_content, against: [ :content],
+                   using: {
+                     :tsearch => {:prefix => true}
+                   }
 
+  
   @@reply_to_regexp = /\A@([^\s]*)/
 
   attr_accessible :content, :to

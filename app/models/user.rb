@@ -17,9 +17,20 @@
 
 class User < ActiveRecord::Base 
     
+    # search
+    
     include PgSearch
 
-    pg_search_scope :search_full_name, against: [:name, :email, :nickname]
+     # def micropost
+     #   self.
+     # end
+
+
+     pg_search_scope :search_full_name, against: [:name, :email, :nickname],
+                                        using: {
+                                         :tsearch => {:prefix => true}
+                                        }
+
 
     # include ActiveRecord::Transitions 
 
@@ -79,6 +90,9 @@ class User < ActiveRecord::Base
     end
 
   end
+
+  
+
 
   def feed
      Micropost.from_users_followed_by_including_replies(self) 
