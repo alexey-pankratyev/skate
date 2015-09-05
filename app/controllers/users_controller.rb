@@ -21,7 +21,7 @@
    def show
       @user = User.find(params[:id])
       @microposts = params[:query].blank? ? @user.microposts.paginate(page: params[:page]) :
-                               Micropost.search_content(params[:query]).where(["user_id = ?", current_user]).paginate(page: params[:page])
+                               Micropost.search_content(params[:query]).where(["user_id = ?", params[:id]]).paginate(page: params[:page])
       @title = @user.name
       
       respond_to do |extension|
