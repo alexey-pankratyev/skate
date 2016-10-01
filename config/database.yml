@@ -22,12 +22,10 @@ test: &test
   username: postgres
   password: test
   database: test_postgresql
-  encoding: unicode
   pool: 5
   timeout: 5000
   host: localhost
   port: 5432
-  template: template0
   #schema_search_path: public
   
   #template: template 1
@@ -39,10 +37,8 @@ production:
   username: postgres
   password: test
   database:  production_postgresql
-  encoding: unicode
   pool: 5
   timeout: 5000
-  template: template0
  # host: localhost
  # port: 5432
   #schema_search_path: public
