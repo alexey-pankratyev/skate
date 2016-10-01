@@ -1,7 +1,7 @@
 
 require 'rubygems'
 require 'spork'
-# require 'factory_girl_rails'
+require 'factory_girl_rails'
 require "webrat"
 require 'webrat/core/matchers'
 include Webrat::Methods
