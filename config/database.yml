@@ -9,7 +9,7 @@ development:
   database:  development_postgresql
   encoding: unicode
   pool: 5
-  password: test
+  password: 
   timeout: 5000
   host: localhost
   port: 5432
@@ -20,7 +20,7 @@ development:
 test: &test
   adapter: postgresql
   username: postgres
-  password: test
+  password: 
   database: test_postgresql
   encoding: unicode
   pool: 5
@@ -36,7 +36,7 @@ test: &test
 production:
   adapter: postgresql
   username: postgres
-  password: test
+  password: 
   database:  production_postgresql
   encoding: unicode
   pool: 5
