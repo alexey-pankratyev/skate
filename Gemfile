@@ -42,6 +42,7 @@ group :assets do
 end
 
 group :development, :test  do
+ gem 'guard', '2.6.1'
  gem 'rspec-rails', '2.13.1'
  gem 'guard-spork', '1.5.0'
  # gem 'spork', '0.9.0.rc8'
